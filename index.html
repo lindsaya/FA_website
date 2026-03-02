@@ -403,6 +403,24 @@
   .cred-block {
     background: var(--black);
     padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cred-link {
+    margin-top: auto;
+    padding-top: 2rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.8;
+  }
+
+  .cred-link a {
+    color: var(--white);
+    text-decoration: underline;
+    text-decoration-color: var(--pink);
+    text-underline-offset: 3px;
   }
 
   .cred-icon {
@@ -836,19 +854,24 @@
   <div class="cred-block">
     <div class="cred-icon">40%</div>
     <div class="cred-title">Government Rebates</div>
-    <div class="cred-body">
-      Australia's <strong>30% PDV Offset</strong> combined with the <strong>NSW Government's 10% rebate</strong> means productions using Future Associate's VFX services qualify for up to 40 cents back on every dollar spent.<br><br><br><br><a href="http://www.ausfilm.com.au/incentives/post-digital-and-visual-effects-production-pdv-offset/" target="_blank">Learn more at Ausfilm</a>.
+    <div style="display:flex; align-items:center; gap:2rem;">
+      <div class="cred-body">
+        Australia's <strong>30% PDV Offset</strong> combined with the <strong>NSW Government's 10% rebate</strong> means productions using Future Associate's VFX services qualify for up to 40 cents back on every dollar spent.
+      </div>
+      <img src="assets/Ausfilm_logo.svg.png" alt="Ausfilm" style="height:165px; width:auto; display:block; flex-shrink:0;">
     </div>
+    <div class="cred-link"><a href="http://www.ausfilm.com.au/incentives/post-digital-and-visual-effects-production-pdv-offset/" target="_blank">Learn more at Ausfilm</a>.</div>
   </div>
   <div class="cred-block">
     <div class="cred-icon">TPN</div>
     <div class="cred-title">Security Certified</div>
     <div style="display:flex; align-items:center; gap:2rem;">
       <div class="cred-body">
-        Future Associate is <strong>TPN Gold certified</strong> — the only independent VFX studio in Australia to earn it. Your content is too valuable to risk anywhere else.<br><br><br><a href="https://www.ttpn.org/" target="_blank">Learn more at TPN.</a>
+        Future Associate is <strong>TPN Gold certified</strong> — the only independent VFX studio in Australia to earn it. Your content is too valuable to risk anywhere else.
       </div>
       <img src="assets/TPN_gold_shield.png" alt="TPN Gold Certified" style="height:165px; width:auto; display:block; flex-shrink:0;">
     </div>
+    <div class="cred-link"><a href="https://www.ttpn.org/" target="_blank">Learn more at TPN.</a></div>
   </div>
   <div class="cred-block">
     <div class="cred-icon">750 sqm / 8,000 sqft</div>

@@ -192,7 +192,7 @@
     font-family: var(--font-display);
     font-size: clamp(1.8rem, 4vw, 3rem);
     letter-spacing: 0.03em;
-    color: rgba(240,237,232,0.15);
+    color: var(--pink);
     line-height: 1.1;
     max-width: 900px;
   }
@@ -326,6 +326,41 @@
   }
 
   .form-submit:hover { background: var(--white); }
+  .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .field-error {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pink);
+    min-height: 1em;
+  }
+
+  .form-field.has-error input,
+  .form-field.has-error textarea,
+  .form-field.has-error select {
+    border-bottom-color: var(--pink);
+  }
+
+  .form-success {
+    padding: 4rem 0;
+  }
+
+  .form-success-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    letter-spacing: 0.03em;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .form-success-body {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.8;
+  }
 
   /* DIVIDER */
   .divider {
@@ -434,13 +469,11 @@
   </div>
 
   <div class="form-wrap">
-    <form action="https://api.web3forms.com/submit" method="post">
-      <input type="hidden" name="access_key" value="cedcc93d-d630-42ae-95e1-d4702ca2aabd">
-      <input type="hidden" name="subject" value="Job Application — Future Associate">
+    <form id="apply-form" novalidate>
 
       <div class="form-field">
         <label for="position">Position</label>
-        <select id="position" name="position" required>
+        <select id="position" name="position">
           <option value="" disabled selected></option>
           <option>Senior Compositor</option>
           <option>Compositor</option>
@@ -455,38 +488,45 @@
           <option>Pipeline TD</option>
           <option>Other</option>
         </select>
+        <span class="field-error" id="err-position"></span>
       </div>
 
       <div class="form-row">
         <div class="form-field">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required autocomplete="off">
+          <input type="text" id="name" name="name" autocomplete="off">
+          <span class="field-error" id="err-name"></span>
         </div>
         <div class="form-field">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="off">
+          <input type="email" id="email" name="email" autocomplete="off">
+          <span class="field-error" id="err-email"></span>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-field">
           <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" required autocomplete="off">
+          <input type="tel" id="phone" name="phone" autocomplete="off">
+          <span class="field-error" id="err-phone"></span>
         </div>
         <div class="form-field">
           <label for="city">City of Residence</label>
-          <input type="text" id="city" name="city" required autocomplete="off">
+          <input type="text" id="city" name="city" autocomplete="off">
+          <span class="field-error" id="err-city"></span>
         </div>
       </div>
 
       <div class="form-field">
         <label for="showreel">Showreel URL</label>
-        <input type="url" id="showreel" name="showreel" placeholder="vimeo.com/yourlink" required autocomplete="off">
+        <input type="url" id="showreel" name="showreel" placeholder="vimeo.com/yourlink" autocomplete="off">
+        <span class="field-error" id="err-showreel"></span>
       </div>
 
       <div class="form-field">
         <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
+        <textarea id="message" name="message"></textarea>
+        <span class="field-error" id="err-message"></span>
       </div>
 
       <button type="submit" class="form-submit">Submit Application →</button>
@@ -503,5 +543,79 @@
   <div class="footer-copy">© Future Associate Pty Ltd · All Rights Reserved</div>
 </footer>
 
+<script>
+  // ← Paste your deployed Apps Script URL here after setup
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycby5z5nF1erT3eQdHy0pn9r8uA048BAka4kwNJRmaK1jb7v3PP2BGN3cTz4idtJ0jYyy2A/exec';
+
+  const FIELDS = [
+    { id: 'position',  label: 'Position' },
+    { id: 'name',      label: 'Name' },
+    { id: 'email',     label: 'Email' },
+    { id: 'phone',     label: 'Phone' },
+    { id: 'city',      label: 'City' },
+    { id: 'showreel',  label: 'Showreel URL' },
+    { id: 'message',   label: 'Message' },
+  ];
+
+  document.getElementById('apply-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Clear previous errors
+    FIELDS.forEach(f => {
+      document.getElementById('err-' + f.id).textContent = '';
+      document.getElementById(f.id).closest('.form-field').classList.remove('has-error');
+    });
+
+    // Validate
+    let valid = true;
+    FIELDS.forEach(f => {
+      const el = document.getElementById(f.id);
+      const err = document.getElementById('err-' + f.id);
+      const val = el.value.trim();
+
+      if (!val) {
+        err.textContent = 'Required';
+        el.closest('.form-field').classList.add('has-error');
+        valid = false;
+      } else if (f.id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+        err.textContent = 'Enter a valid email';
+        el.closest('.form-field').classList.add('has-error');
+        valid = false;
+      }
+    });
+
+    if (!valid) return;
+
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const data = {};
+    FIELDS.forEach(f => { data[f.id] = document.getElementById(f.id).value.trim(); });
+
+    // Send to Google Sheet
+    const params = new URLSearchParams();
+    Object.entries(data).forEach(([k, v]) => params.append(k, v));
+    fetch(SHEET_URL + '?' + params.toString(), { method: 'GET', mode: 'no-cors' });
+
+    // Send to web3forms for email notification
+    const w3 = new FormData();
+    w3.append('access_key', 'cedcc93d-d630-42ae-95e1-d4702ca2aabd');
+    w3.append('subject', 'Job Application — Future Associate');
+    Object.entries(data).forEach(([k, v]) => w3.append(k, v));
+
+    try {
+      await fetch('https://api.web3forms.com/submit', { method: 'POST', body: w3 });
+    } catch (_) {}
+
+    // Show success
+    const firstName = data.name.split(' ')[0];
+    document.getElementById('apply-form').innerHTML = `
+      <div class="form-success">
+        <div class="form-success-title">Application Received</div>
+        <div class="form-success-body">Thanks ${firstName}. We'll be in touch if there's a fit.</div>
+      </div>`;
+  });
+</script>
 </body>
 </html>
