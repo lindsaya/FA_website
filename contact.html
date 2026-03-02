@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Future Associate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #000000;
+    --white: #f0ede8;
+    --pink: #ec008d;
+    --grey: #2a2a2a;
+    --mid: #888;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Libre Baskerville', Georgia, serif;
+    --font-mono: 'Courier Prime', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 1.5rem 3rem;
+    background: rgba(0,0,0,0.97);
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    top: 6px;
+  }
+
+  .nav-logo img {
+    height: 62px;
+    width: auto;
+    display: block;
+    mix-blend-mode: screen;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    position: relative;
+    top: 8px;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--pink); }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 12rem 3rem 6rem;
+    border-bottom: 1px solid var(--grey);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: 'CONTACT';
+    position: absolute;
+    right: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-display);
+    font-size: 18rem;
+    color: rgba(240,237,232,0.02);
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .page-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  /* CONTACT LAYOUT */
+  .contact-body {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    min-height: 70vh;
+  }
+
+  /* LEFT — INFO */
+  .contact-info {
+    padding: 6rem 4rem 6rem 3rem;
+    border-right: 1px solid var(--grey);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+
+  .info-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 0.8rem;
+  }
+
+  .info-value {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(240,237,232,0.75);
+  }
+
+  .info-value strong {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* MAP */
+  .map-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 65%;
+    overflow: hidden;
+    border: 1px solid var(--grey);
+    filter: saturate(0) brightness(0.5) contrast(1.2);
+    transition: filter 0.5s;
+  }
+
+  .map-wrap:hover {
+    filter: saturate(0.3) brightness(0.7) contrast(1.1);
+  }
+
+  .map-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  /* SOCIALS */
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .social-link {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: color 0.2s;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--grey);
+  }
+
+  .social-link:hover { color: var(--white); }
+
+  .social-link::before {
+    content: '→';
+    color: var(--pink);
+    font-size: 0.7rem;
+  }
+
+  /* RIGHT — FORM */
+  .contact-form-wrap {
+    padding: 6rem 5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+
+  .form-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: 0.03em;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+  }
+
+  .form-sub {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 3.5rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-field label {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--grey);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 0.7rem 0;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    border-bottom-color: var(--pink);
+  }
+
+  .form-field textarea {
+    resize: none;
+    height: 120px;
+  }
+
+  .form-field select option {
+    background: #111;
+  }
+
+  .form-submit {
+    margin-top: 2.5rem;
+    display: inline-block;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--black);
+    background: var(--pink);
+    border: none;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .form-submit:hover { background: var(--white); }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--grey), transparent);
+    margin: 0 3rem;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 6rem 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+  }
+
+  .footer-location {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    .contact-body { grid-template-columns: 1fr; }
+    .contact-info { border-right: none; border-bottom: 1px solid var(--grey); padding: 3rem 2rem; }
+    .contact-form-wrap { padding: 3rem 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .page-header { padding: 8rem 2rem 4rem; }
+    nav { padding: 1.5rem 2rem; }
+    .nav-links { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul class="nav-links">
+    <li><a href="index.html#reel">Reel</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="about.html">Leadership</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="index.html" class="nav-logo"><img src="assets/fa_on_black_crop.jpg" alt="Future Associate"></a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-eyebrow">/ 00 — Get In Touch</div>
+  <h1 class="page-title">Contact</h1>
+</div>
+
+<!-- CONTACT BODY -->
+<div class="contact-body">
+
+  <!-- LEFT: INFO + MAP -->
+  <div class="contact-info">
+
+    <div>
+      <div class="info-label">Studio</div>
+      <div class="info-value">
+        <strong>Sydney</strong>
+        39–43 Shepherd Street<br>
+        Marrickville NSW 2204<br>
+        Australia
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=39-43+Shepherd+Street,+Marrickville+NSW+2204,+Australia&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <div>
+      <div class="info-label">Follow</div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/future-associate" target="_blank" class="social-link">LinkedIn</a>
+        <a href="https://www.instagram.com/future_associate" target="_blank" class="social-link">Instagram</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: FORM -->
+  <div class="contact-form-wrap">
+    <div class="form-heading">Let's Talk.</div>
+    <div class="form-sub">Send us a message and we'll get back to you to schedule a call.</div>
+
+    <form action="https://api.web3forms.com/submit" method="post">
+      <input type="hidden" name="access_key" value="cedcc93d-d630-42ae-95e1-d4702ca2aabd">
+      <input type="hidden" name="subject" value="New enquiry — Future Associate">
+      <input type="hidden" name="redirect" value="https://future-associate.com/contact-us">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="off">
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="off">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" autocomplete="off">
+      </div>
+      <div class="form-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message →</button>
+    </form>
+  </div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-location">Sydney, NSW &nbsp;·&nbsp; Australia</div>
+  <div class="footer-copy">© Future Associate Pty Ltd · All Rights Reserved</div>
+</footer>
+
+</body>
+</html>
