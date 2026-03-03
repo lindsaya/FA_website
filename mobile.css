@@ -76,4 +76,193 @@
     transform: translateY(-8px) rotate(-45deg);
   }
 
+  /* ================================
+     NAV LOGO (stop it clipping)
+     ================================ */
+
+  .nav-logo {
+    top: 0;
+  }
+
+  .nav-logo img {
+    height: 44px;
+  }
+
+  /* ================================
+     HERO
+     ================================ */
+
+  .hero {
+    padding: 2rem 1.5rem 3rem;
+    min-height: auto;
+  }
+
+  .hero-main {
+    margin-top: 5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(3.2rem, 15vw, 5rem);
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .hero-sub {
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    align-items: flex-start;
+  }
+
+  .hero-stats {
+    gap: 2rem;
+  }
+
+  .stat-num {
+    font-size: 2rem;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+
+  /* ================================
+     DIVIDER
+     ================================ */
+
+  .divider {
+    margin: 0 1.5rem;
+  }
+
+  /* ================================
+     REEL
+     ================================ */
+
+  .reel-section {
+    padding: 0 1.5rem;
+  }
+
+  /* ================================
+     SECTION HEADERS
+     ================================ */
+
+  .section-header {
+    padding: 3rem 1.5rem 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* ================================
+     PROJECTS
+     ================================ */
+
+  .projects {
+    padding: 0 1.5rem 3rem;
+    columns: 1 !important;
+  }
+
+  /* On touch devices, always show overlay (no hover) */
+  .project-overlay {
+    transform: translateY(0) !important;
+  }
+
+  .project-desc {
+    max-height: none !important;
+    opacity: 1 !important;
+  }
+
+  .project-links {
+    max-height: none !important;
+    opacity: 1 !important;
+  }
+
+  /* ================================
+     CREDENTIALS (the 4-block quadrant)
+     ================================ */
+
+  .credentials {
+    grid-template-columns: 1fr !important;
+    padding: 2rem 1.5rem;
+    gap: 1px;
+  }
+
+  .cred-block {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .cred-icon {
+    font-size: 2.5rem;
+  }
+
+  .cred-img-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .cred-img-row img {
+    height: 100px !important;
+  }
+
+  /* ================================
+     FOOTER
+     ================================ */
+
+  footer {
+    padding: 3rem 1.5rem;
+  }
+
+  /* ================================
+     CONTACT PAGE
+     ================================ */
+
+  .contact-body {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-info {
+    border-right: none !important;
+    border-bottom: 1px solid #2a2a2a;
+    padding: 3rem 1.5rem !important;
+  }
+
+  .contact-form-wrap {
+    padding: 3rem 1.5rem !important;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ================================
+     ABOUT / LEADERSHIP PAGE
+     ================================ */
+
+  .profile {
+    grid-template-columns: 1fr !important;
+  }
+
+  .profile-image-col {
+    height: 55vh;
+  }
+
+  .profile-content {
+    padding: 3rem 1.5rem !important;
+  }
+
+  .credits-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ================================
+     PAGE HEADERS (about, contact, careers)
+     ================================ */
+
+  .page-header {
+    padding: 7rem 1.5rem 3rem !important;
+  }
+
 }
