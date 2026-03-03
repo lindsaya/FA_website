@@ -194,6 +194,10 @@ html, body {
     opacity: 1 !important;
   }
 
+  .project-desc {
+    display: none !important;
+  }
+
   /* ================================
      CREDENTIALS (4-block quadrant)
      ================================ */
