@@ -86,7 +86,7 @@ html, body {
   }
 
   .nav-links a {
-    font-size: 1.6rem;
+    font-size: 3.2rem;
     letter-spacing: 0.3em;
   }
 
@@ -127,8 +127,8 @@ html, body {
 
   .hero-sub {
     flex-direction: column !important;
-    gap: 2rem !important;
-    margin-top: 2.5rem !important;
+    gap: 3.5rem !important;
+    margin-top: 4rem !important;
     align-items: flex-start !important;
   }
 
@@ -184,19 +184,9 @@ html, body {
     columns: 1 !important;
   }
 
-  /* On touch devices, always show overlay */
+  /* On touch devices, show title/type at bottom edge */
   .project-overlay {
-    transform: translateY(0) !important;
-  }
-
-  .project-desc {
-    max-height: none !important;
-    opacity: 1 !important;
-  }
-
-  .project-links {
-    max-height: none !important;
-    opacity: 1 !important;
+    transform: translateY(30%) !important;
   }
 
   /* ================================
