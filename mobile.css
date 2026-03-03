@@ -86,8 +86,8 @@ html, body {
   }
 
   .nav-links a {
-    font-size: 4.5rem;
-    letter-spacing: 0.3em;
+    font-size: 4.5rem !important;
+    letter-spacing: 0.3em !important;
   }
 
   /* Hamburger → X */
