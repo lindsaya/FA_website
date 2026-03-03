@@ -253,7 +253,8 @@
 
   .section-label {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 1rem;
+    font-weight: 700;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--pink);
@@ -296,11 +297,12 @@
 
   .project-card {
     break-inside: avoid;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    background: var(--grey);
+    background: #000;
+    padding-bottom: 3.5rem;
   }
 
   .project-card img {
@@ -319,18 +321,27 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     padding: 2rem 1.4rem 1.4rem;
-    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 40%, rgba(0,0,0,0.7) 65%, rgba(0,0,0,0.2) 85%, transparent 100%);
+    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.97) 50%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0.4) 88%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(40%);
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .project-card:hover .project-overlay {
     transform: translateY(0);
-    transition: padding 0.3s;
   }
 
   .project-type {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--pink);
-    margin-bottom: 0.4rem;
+    margin-top: 0.4rem;
+    order: 2;
+    transition: transform 0.4s ease;
   }
 
   .project-name {
@@ -339,33 +350,37 @@
     letter-spacing: 0.06em;
     color: var(--white);
     line-height: 1.1;
+    order: 1;
+    text-shadow: 0 2px 20px rgba(0,0,0,1), 0 1px 6px rgba(0,0,0,1), 0 4px 30px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,1);
   }
 
   .project-desc {
     font-family: var(--font-body);
     font-size: 0.75rem;
-    color: rgba(240,237,232,0.6);
+    color: rgba(240,237,232,0.9);
     line-height: 1.5;
-    margin-top: 0.5rem;
+    margin-top: 0.6rem;
+    order: 3;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s;
     opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.35s ease 0.05s;
   }
 
   .project-card:hover .project-desc {
-    max-height: 80px;
+    max-height: 100px;
     opacity: 1;
   }
 
   .project-links {
     display: flex;
-    gap: 0.8rem;
+    gap: 1rem;
     margin-top: 0.8rem;
+    order: 4;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s;
     opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease 0.1s;
   }
 
   .project-card:hover .project-links {
@@ -375,19 +390,20 @@
 
   .project-link {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--mid);
+    color: var(--white);
     text-decoration: none;
-    border-bottom: 1px solid var(--grey);
-    padding-bottom: 1px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 2px;
     transition: color 0.2s, border-color 0.2s;
   }
 
   .project-link:hover {
-    color: var(--white);
-    border-color: var(--white);
+    color: var(--pink);
+    border-color: var(--pink);
   }
 
   /* CREDENTIALS */
@@ -851,7 +867,7 @@
 <!-- CREDENTIALS -->
 <div id="credentials" class="section-header">
   <span class="section-label">/ 02</span>
-  <h2 class="section-title">Why Future Associate.</h2>
+  <h2 class="section-title">Why Future Associate<span style="color:var(--pink)">.</span></h2>
 </div>
 
 <div class="credentials observe">
