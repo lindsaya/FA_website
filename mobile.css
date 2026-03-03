@@ -111,7 +111,7 @@ html, body {
   }
 
   .hero-main {
-    margin-top: 5rem !important;
+    margin-top: 8rem !important;
   }
 
   .hero-title {
@@ -127,7 +127,7 @@ html, body {
 
   .hero-sub {
     flex-direction: column !important;
-    gap: 5rem !important;
+    gap: 7rem !important;
     margin-top: 4rem !important;
     align-items: flex-start !important;
   }
