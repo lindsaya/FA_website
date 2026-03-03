@@ -52,12 +52,12 @@ html, body {
 
   .nav-toggle {
     display: flex;
-    order: 2;
+    order: 1;
   }
 
   .nav-logo {
     top: 0 !important;
-    order: 1;
+    order: 2;
   }
 
   .nav-logo img {
@@ -184,9 +184,14 @@ html, body {
     columns: 1 !important;
   }
 
-  /* On touch devices, show title/type at bottom edge */
+  /* On touch devices, show title/type + links at bottom edge */
   .project-overlay {
-    transform: translateY(30%) !important;
+    transform: translateY(18%) !important;
+  }
+
+  .project-links {
+    max-height: none !important;
+    opacity: 1 !important;
   }
 
   /* ================================
