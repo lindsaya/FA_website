@@ -61,7 +61,7 @@ html, body {
   }
 
   .nav-logo img {
-    height: 54px !important;
+    height: 48px !important;
     max-width: none;
   }
 
@@ -86,7 +86,7 @@ html, body {
   }
 
   .nav-links a {
-    font-size: 3.2rem;
+    font-size: 4.5rem;
     letter-spacing: 0.3em;
   }
 
