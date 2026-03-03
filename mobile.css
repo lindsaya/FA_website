@@ -181,8 +181,15 @@ html, body {
 
   .projects {
     padding: 0 1.5rem 3rem !important;
-    columns: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    columns: unset !important;
   }
+
+  /* Reorder top row: MK2 → The Bluff → Elvis */
+  .projects .project-card:nth-child(1)  { order: -3; } /* MK2 */
+  .projects .project-card:nth-child(7)  { order: -2; } /* The Bluff */
+  .projects .project-card:nth-child(13) { order: -1; } /* Elvis */
 
   /* On touch devices, show title/type + links at bottom edge */
   .project-overlay {
