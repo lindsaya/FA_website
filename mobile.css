@@ -205,6 +205,10 @@ html, body {
     display: none !important;
   }
 
+  .why-word {
+    display: block !important;
+  }
+
   /* ================================
      CREDENTIALS (4-block quadrant)
      ================================ */
