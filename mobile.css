@@ -1,0 +1,79 @@
+/* ================================
+   HAMBURGER BUTTON (hidden desktop)
+   ================================ */
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 201;
+  flex-shrink: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ================================
+   MOBILE BREAKPOINT
+   ================================ */
+
+@media (max-width: 768px) {
+
+  nav {
+    padding: 1rem 1.5rem;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: flex;
+    order: 2;
+  }
+
+  /* Nav links become full-screen overlay */
+  .nav-links {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(8, 8, 8, 0.98);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    display: none;
+    z-index: 200;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1.6rem;
+    letter-spacing: 0.3em;
+  }
+
+  /* Hamburger → X */
+  .nav-toggle.is-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .nav-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.is-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+}
