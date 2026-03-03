@@ -61,7 +61,7 @@ html, body {
   }
 
   .nav-logo img {
-    height: 40px !important;
+    height: 54px !important;
     max-width: none;
   }
 
@@ -127,7 +127,7 @@ html, body {
 
   .hero-sub {
     flex-direction: column !important;
-    gap: 3.5rem !important;
+    gap: 5rem !important;
     margin-top: 4rem !important;
     align-items: flex-start !important;
   }
