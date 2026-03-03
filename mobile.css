@@ -121,7 +121,8 @@ html, body {
   }
 
   .hero-eyebrow {
-    font-size: 0.7rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
     letter-spacing: 0.15em !important;
   }
 
