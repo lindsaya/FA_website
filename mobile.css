@@ -26,19 +26,43 @@
 }
 
 /* ================================
+   GLOBAL — prevent horizontal overflow
+   ================================ */
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* ================================
    MOBILE BREAKPOINT
    ================================ */
 
 @media (max-width: 768px) {
 
+  /* ================================
+     NAV
+     ================================ */
+
   nav {
-    padding: 1rem 1.5rem;
-    align-items: center;
+    padding: 1rem 1.5rem !important;
+    align-items: center !important;
+    overflow: visible;
   }
 
   .nav-toggle {
     display: flex;
     order: 2;
+  }
+
+  .nav-logo {
+    top: 0 !important;
+    order: 1;
+  }
+
+  .nav-logo img {
+    height: 40px !important;
+    max-width: none;
   }
 
   /* Nav links become full-screen overlay */
@@ -54,6 +78,7 @@
     z-index: 200;
     margin: 0;
     padding: 0;
+    order: 3;
   }
 
   .nav-links.is-open {
@@ -77,56 +102,51 @@
   }
 
   /* ================================
-     NAV LOGO (stop it clipping)
-     ================================ */
-
-  .nav-logo {
-    top: 0;
-  }
-
-  .nav-logo img {
-    height: 44px;
-  }
-
-  /* ================================
      HERO
      ================================ */
 
   .hero {
-    padding: 2rem 1.5rem 3rem;
-    min-height: auto;
+    padding: 2rem 1.5rem 3rem !important;
+    min-height: auto !important;
   }
 
   .hero-main {
-    margin-top: 5rem;
+    margin-top: 5rem !important;
   }
 
   .hero-title {
-    font-size: clamp(3.2rem, 15vw, 5rem);
+    font-size: 13vw !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
-  .hero-tagline {
-    font-size: 1rem;
-    max-width: 100%;
+  .hero-eyebrow {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.15em !important;
   }
 
   .hero-sub {
-    flex-direction: column;
-    gap: 2rem;
-    margin-top: 2.5rem;
-    align-items: flex-start;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    margin-top: 2.5rem !important;
+    align-items: flex-start !important;
+  }
+
+  .hero-tagline {
+    font-size: 1rem !important;
+    max-width: 100% !important;
   }
 
   .hero-stats {
-    gap: 2rem;
+    gap: 2rem !important;
   }
 
   .stat-num {
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
 
   .scroll-hint {
-    display: none;
+    display: none !important;
   }
 
   /* ================================
@@ -134,7 +154,7 @@
      ================================ */
 
   .divider {
-    margin: 0 1.5rem;
+    margin: 0 1.5rem !important;
   }
 
   /* ================================
@@ -142,7 +162,7 @@
      ================================ */
 
   .reel-section {
-    padding: 0 1.5rem;
+    padding: 0 1.5rem !important;
   }
 
   /* ================================
@@ -150,9 +170,9 @@
      ================================ */
 
   .section-header {
-    padding: 3rem 1.5rem 1.5rem;
+    padding: 3rem 1.5rem 1.5rem !important;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.5rem !important;
   }
 
   /* ================================
@@ -160,11 +180,11 @@
      ================================ */
 
   .projects {
-    padding: 0 1.5rem 3rem;
+    padding: 0 1.5rem 3rem !important;
     columns: 1 !important;
   }
 
-  /* On touch devices, always show overlay (no hover) */
+  /* On touch devices, always show overlay */
   .project-overlay {
     transform: translateY(0) !important;
   }
@@ -180,31 +200,32 @@
   }
 
   /* ================================
-     CREDENTIALS (the 4-block quadrant)
+     CREDENTIALS (4-block quadrant)
      ================================ */
 
   .credentials {
     grid-template-columns: 1fr !important;
-    padding: 2rem 1.5rem;
-    gap: 1px;
+    padding: 0 !important;
+    gap: 1px !important;
   }
 
   .cred-block {
-    padding: 2.5rem 1.5rem;
+    padding: 2.5rem 1.5rem !important;
   }
 
   .cred-icon {
-    font-size: 2.5rem;
+    font-size: 2.2rem !important;
   }
 
   .cred-img-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
   }
 
   .cred-img-row img {
-    height: 100px !important;
+    height: 80px !important;
+    width: auto !important;
   }
 
   /* ================================
@@ -212,7 +233,7 @@
      ================================ */
 
   footer {
-    padding: 3rem 1.5rem;
+    padding: 3rem 1.5rem !important;
   }
 
   /* ================================
@@ -225,7 +246,7 @@
 
   .contact-info {
     border-right: none !important;
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid #2a2a2a !important;
     padding: 3rem 1.5rem !important;
   }
 
@@ -246,7 +267,7 @@
   }
 
   .profile-image-col {
-    height: 55vh;
+    height: 55vh !important;
   }
 
   .profile-content {
@@ -263,6 +284,10 @@
 
   .page-header {
     padding: 7rem 1.5rem 3rem !important;
+  }
+
+  .page-header::before {
+    display: none !important;
   }
 
 }
