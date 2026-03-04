@@ -540,16 +540,30 @@
     CONTACT_FIELDS.forEach(f => { data[f.id] = document.getElementById(f.id).value.trim(); });
 
     // Send via web3forms
-    const w3 = new FormData();
-    w3.append('access_key', 'cedcc93d-d630-42ae-95e1-d4702ca2aabd');
-    w3.append('subject', `New enquiry — ${data.subject}`);
-    w3.append('name', data.name);
-    w3.append('email', data.email);
-    w3.append('message', `Subject: ${data.subject}\n\n${data.message}`);
-
+    let submitOk = false;
     try {
-      await fetch('https://api.web3forms.com/submit', { method: 'POST', body: w3 });
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'cedcc93d-d630-42ae-95e1-d4702ca2aabd',
+          subject: `New enquiry — ${data.subject}`,
+          name: data.name,
+          email: data.email,
+          message: `Subject: ${data.subject}\n\n${data.message}`,
+          botcheck: ''
+        })
+      });
+      const result = await res.json();
+      submitOk = result.success;
     } catch (_) {}
+
+    if (!submitOk) {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Something went wrong — please try again or email us directly.');
+      return;
+    }
 
     // Show success
     const firstName = data.name.split(' ')[0];
