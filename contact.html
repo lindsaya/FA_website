@@ -542,8 +542,10 @@
     // Send via web3forms
     const w3 = new FormData();
     w3.append('access_key', 'cedcc93d-d630-42ae-95e1-d4702ca2aabd');
-    w3.append('subject', 'New enquiry — Future Associate');
-    Object.entries(data).forEach(([k, v]) => w3.append(k, v));
+    w3.append('subject', `New enquiry — ${data.subject}`);
+    w3.append('name', data.name);
+    w3.append('email', data.email);
+    w3.append('message', `Subject: ${data.subject}\n\n${data.message}`);
 
     try {
       await fetch('https://api.web3forms.com/submit', { method: 'POST', body: w3 });
