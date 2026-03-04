@@ -280,8 +280,9 @@
   /* PROJECTS GRID */
   .projects {
     padding: 0 clamp(3rem, 6vw, 8rem) 6rem;
-    columns: 3;
-    column-gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 
   @media (orientation: portrait) {
@@ -289,25 +290,26 @@
   }
 
   @media (max-width: 900px) {
-    .projects { columns: 2; }
+    .projects { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 600px) {
-    .projects { columns: 1; }
+    .projects { grid-template-columns: 1fr; }
   }
 
   .project-card {
-    break-inside: avoid;
-    margin-bottom: 3rem;
     position: relative;
     overflow: hidden;
     cursor: pointer;
     background: #000;
-    padding-bottom: 3.5rem;
+    aspect-ratio: 2 / 3;
   }
 
   .project-card img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
     display: block;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s;
     filter: saturate(0.7) brightness(0.85);
@@ -650,76 +652,6 @@
 
   <!-- 2 -->
   <div class="project-card observe">
-    <img src="assets/the-equalizer-3.jpg" alt="The Equalizer 3" loading="lazy">
-    <div class="project-overlay">
-      <div class="project-type">Film · Sony</div>
-      <div class="project-name">THE EQUALIZER 3</div>
-      <div class="project-desc">Robert McCall finds refuge in Southern Italy — until local crime bosses threaten everything he loves.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt17024450/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=19ikl8vy4zs" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 3 -->
-  <div class="project-card observe">
-    <img src="assets/ncis-sydney.jpg" alt="NCIS Sydney" loading="lazy">
-    <div class="project-overlay">
-      <div class="project-type">Series · CBS</div>
-      <div class="project-name">NCIS: SYDNEY S2 &amp; S3</div>
-      <div class="project-desc">American NCIS agents and Australian officers investigating crimes together.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt18258908/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=yXKhSEHzBso" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 4 -->
-  <div class="project-card observe">
-    <img src="assets/apple-cider-vinegar.jpg" alt="Apple Cider Vinegar" loading="lazy">
-    <div class="project-overlay">
-      <div class="project-type">Series · Netflix</div>
-      <div class="project-name">APPLE CIDER VINEGAR</div>
-      <div class="project-desc">The life of wellness guru Belle Gibson, who faked cancer while building a self-care empire.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt30428143/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=u2Yj_rmCzhE" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 5 -->
-  <div class="project-card observe">
-    <img src="assets/nope.jpg" alt="Nope" loading="lazy">
-    <div class="project-overlay">
-      <div class="project-type">Film · Universal</div>
-      <div class="project-name">NOPE</div>
-      <div class="project-desc">Residents of an inland California gulch witness an uncanny and terrifying discovery. Dir. Jordan Peele.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt10954984/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=In8fuzj3gck" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 7 -->
-  <div class="project-card observe">
-    <img src="assets/la-brea-s3.jpg" alt="La Brea S3" loading="lazy">
-    <div class="project-overlay">
-      <div class="project-type">Series · NBC</div>
-      <div class="project-name">LA BREA: S2 &amp; S3</div>
-      <div class="project-desc">A massive sinkhole swallows part of Los Angeles, separating a family into an unexplained primeval world.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt11640018/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=wLKL4I8b2t4" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 8 -->
-  <div class="project-card observe">
     <img src="assets/the-bluff.jpg" alt="The Bluff" loading="lazy">
     <div class="project-overlay">
       <div class="project-type">Film · Amazon</div>
@@ -732,77 +664,7 @@
     </div>
   </div>
 
-  <!-- 9 -->
-  <div class="project-card observe">
-    <img src="assets/nautilus.jpg" alt="Nautilus" loading="lazy">
-    <div class="project-overlay">
-      <div class="project-type">Series · Disney+</div>
-      <div class="project-name">NAUTILUS</div>
-      <div class="project-desc">The origin story of Captain Nemo, based on Jules Verne's 20,000 Leagues Under The Sea.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt15286302/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=2HxWthmp9HU" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 10 -->
-  <div class="project-card observe">
-    <img src="assets/monkey-man.jpg" alt="Monkey Man" loading="lazy">
-    <div class="project-overlay">
-      <div class="project-type">Film · Universal</div>
-      <div class="project-name">MONKEY MAN</div>
-      <div class="project-desc">A young man launches a campaign of vengeance against the corrupt leaders who murdered his mother.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt9214772/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=g8zxiB5Qhsc" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 11 -->
-  <div class="project-card observe">
-    <img src="assets/watchmen.jpg" alt="Watchmen" loading="lazy">
-    <div class="project-overlay">
-      <div class="project-type">Series · HBO</div>
-      <div class="project-name">WATCHMEN</div>
-      <div class="project-desc">Set in an alternate history where masked vigilantes are outlaws. Based on the groundbreaking graphic novel.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt7049682/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=luvIreUzyXI" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 14 -->
-  <div class="project-card observe">
-    <img src="assets/three-thousand-years-of-longing.jpg" alt="Three Thousand Years of Longing" loading="lazy">
-    <div class="project-overlay">
-      <div class="project-type">Film · MGM</div>
-      <div class="project-name">THREE THOUSAND YEARS OF LONGING</div>
-      <div class="project-desc">A lonely scholar discovers a Djinn who offers her three wishes in exchange for his freedom. Dir. George Miller.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt9198364/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=TWGvntl9itE" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 15 -->
-  <div class="project-card observe">
-    <img src="assets/heartbreak-high-s2.jpg" alt="Heartbreak High S2" loading="lazy">
-    <div class="project-overlay">
-      <div class="project-type">Series · Netflix</div>
-      <div class="project-name">HEARTBREAK HIGH: S2</div>
-      <div class="project-desc">Hartley High, 20 years on. Amerie navigates reputation, love, sex, and heartbreak.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt15054962/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=Zj5-uPt8718" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 16 -->
+  <!-- 3 -->
   <div class="project-card observe">
     <img src="assets/elvis.jpg" alt="Elvis" loading="lazy">
     <div class="project-overlay">
@@ -816,7 +678,35 @@
     </div>
   </div>
 
-  <!-- 17 -->
+  <!-- 4 -->
+  <div class="project-card observe">
+    <img src="assets/the-equalizer-3.jpg" alt="The Equalizer 3" loading="lazy">
+    <div class="project-overlay">
+      <div class="project-type">Film · Sony</div>
+      <div class="project-name">THE EQUALIZER 3</div>
+      <div class="project-desc">Robert McCall finds refuge in Southern Italy — until local crime bosses threaten everything he loves.</div>
+      <div class="project-links">
+        <a href="https://www.imdb.com/title/tt17024450/" class="project-link" target="_blank">IMDB</a>
+        <a href="https://www.youtube.com/watch?v=19ikl8vy4zs" class="project-link" target="_blank">Trailer</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="project-card observe">
+    <img src="assets/nautilus.jpg" alt="Nautilus" loading="lazy">
+    <div class="project-overlay">
+      <div class="project-type">Series · Disney+</div>
+      <div class="project-name">NAUTILUS</div>
+      <div class="project-desc">The origin story of Captain Nemo, based on Jules Verne's 20,000 Leagues Under The Sea.</div>
+      <div class="project-links">
+        <a href="https://www.imdb.com/title/tt15286302/" class="project-link" target="_blank">IMDB</a>
+        <a href="https://www.youtube.com/watch?v=2HxWthmp9HU" class="project-link" target="_blank">Trailer</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
   <div class="project-card observe">
     <img src="assets/boy-swallows-universe.jpg" alt="Boy Swallows Universe" loading="lazy">
     <div class="project-overlay">
@@ -826,6 +716,118 @@
       <div class="project-links">
         <a href="https://www.imdb.com/title/tt10399902/" class="project-link" target="_blank">IMDB</a>
         <a href="https://www.youtube.com/watch?v=Ii1UQ-D4dvw" class="project-link" target="_blank">Teaser</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="project-card observe">
+    <img src="assets/ncis-sydney.jpg" alt="NCIS Sydney" loading="lazy">
+    <div class="project-overlay">
+      <div class="project-type">Series · CBS</div>
+      <div class="project-name">NCIS: SYDNEY S2 &amp; S3</div>
+      <div class="project-desc">American NCIS agents and Australian officers investigating crimes together.</div>
+      <div class="project-links">
+        <a href="https://www.imdb.com/title/tt18258908/" class="project-link" target="_blank">IMDB</a>
+        <a href="https://www.youtube.com/watch?v=yXKhSEHzBso" class="project-link" target="_blank">Trailer</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="project-card observe">
+    <img src="assets/apple-cider-vinegar.jpg" alt="Apple Cider Vinegar" loading="lazy">
+    <div class="project-overlay">
+      <div class="project-type">Series · Netflix</div>
+      <div class="project-name">APPLE CIDER VINEGAR</div>
+      <div class="project-desc">The life of wellness guru Belle Gibson, who faked cancer while building a self-care empire.</div>
+      <div class="project-links">
+        <a href="https://www.imdb.com/title/tt30428143/" class="project-link" target="_blank">IMDB</a>
+        <a href="https://www.youtube.com/watch?v=u2Yj_rmCzhE" class="project-link" target="_blank">Trailer</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="project-card observe">
+    <img src="assets/nope.jpg" alt="Nope" loading="lazy">
+    <div class="project-overlay">
+      <div class="project-type">Film · Universal</div>
+      <div class="project-name">NOPE</div>
+      <div class="project-desc">Residents of an inland California gulch witness an uncanny and terrifying discovery. Dir. Jordan Peele.</div>
+      <div class="project-links">
+        <a href="https://www.imdb.com/title/tt10954984/" class="project-link" target="_blank">IMDB</a>
+        <a href="https://www.youtube.com/watch?v=In8fuzj3gck" class="project-link" target="_blank">Trailer</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="project-card observe">
+    <img src="assets/la-brea-s3.jpg" alt="La Brea S3" loading="lazy">
+    <div class="project-overlay">
+      <div class="project-type">Series · NBC</div>
+      <div class="project-name">LA BREA: S2 &amp; S3</div>
+      <div class="project-desc">A massive sinkhole swallows part of Los Angeles, separating a family into an unexplained primeval world.</div>
+      <div class="project-links">
+        <a href="https://www.imdb.com/title/tt11640018/" class="project-link" target="_blank">IMDB</a>
+        <a href="https://www.youtube.com/watch?v=wLKL4I8b2t4" class="project-link" target="_blank">Trailer</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="project-card observe">
+    <img src="assets/monkey-man.jpg" alt="Monkey Man" loading="lazy">
+    <div class="project-overlay">
+      <div class="project-type">Film · Universal</div>
+      <div class="project-name">MONKEY MAN</div>
+      <div class="project-desc">A young man launches a campaign of vengeance against the corrupt leaders who murdered his mother.</div>
+      <div class="project-links">
+        <a href="https://www.imdb.com/title/tt9214772/" class="project-link" target="_blank">IMDB</a>
+        <a href="https://www.youtube.com/watch?v=g8zxiB5Qhsc" class="project-link" target="_blank">Trailer</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="project-card observe">
+    <img src="assets/watchmen.jpg" alt="Watchmen" loading="lazy">
+    <div class="project-overlay">
+      <div class="project-type">Series · HBO</div>
+      <div class="project-name">WATCHMEN</div>
+      <div class="project-desc">Set in an alternate history where masked vigilantes are outlaws. Based on the groundbreaking graphic novel.</div>
+      <div class="project-links">
+        <a href="https://www.imdb.com/title/tt7049682/" class="project-link" target="_blank">IMDB</a>
+        <a href="https://www.youtube.com/watch?v=luvIreUzyXI" class="project-link" target="_blank">Trailer</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="project-card observe">
+    <img src="assets/three-thousand-years-of-longing.jpg" alt="Three Thousand Years of Longing" loading="lazy">
+    <div class="project-overlay">
+      <div class="project-type">Film · MGM</div>
+      <div class="project-name">THREE THOUSAND YEARS OF LONGING</div>
+      <div class="project-desc">A lonely scholar discovers a Djinn who offers her three wishes in exchange for his freedom. Dir. George Miller.</div>
+      <div class="project-links">
+        <a href="https://www.imdb.com/title/tt9198364/" class="project-link" target="_blank">IMDB</a>
+        <a href="https://www.youtube.com/watch?v=TWGvntl9itE" class="project-link" target="_blank">Trailer</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="project-card observe">
+    <img src="assets/heartbreak-high-s2.jpg" alt="Heartbreak High S2" loading="lazy">
+    <div class="project-overlay">
+      <div class="project-type">Series · Netflix</div>
+      <div class="project-name">HEARTBREAK HIGH: S2</div>
+      <div class="project-desc">Hartley High, 20 years on. Amerie navigates reputation, love, sex, and heartbreak.</div>
+      <div class="project-links">
+        <a href="https://www.imdb.com/title/tt15054962/" class="project-link" target="_blank">IMDB</a>
+        <a href="https://www.youtube.com/watch?v=Zj5-uPt8718" class="project-link" target="_blank">Trailer</a>
       </div>
     </div>
   </div>
