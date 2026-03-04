@@ -279,7 +279,7 @@
 
   /* PROJECTS GRID */
   .projects {
-    padding: 0 3rem 6rem;
+    padding: 0 clamp(3rem, 6vw, 8rem) 6rem;
     columns: 3;
     column-gap: 1.5rem;
   }
@@ -407,9 +407,27 @@
     border-color: var(--pink);
   }
 
+  /* Clickable card overlay link */
+  .card-page-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  /* Breakdown link sits above the card overlay */
+  .project-links {
+    position: relative;
+    z-index: 2;
+  }
+
+  .project-link--breakdown {
+    color: var(--pink);
+    border-color: rgba(236,0,141,0.4);
+  }
+
   /* CREDENTIALS */
   .credentials {
-    padding: 6rem 3rem;
+    padding: 6rem clamp(3rem, 12vw, 16rem);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1px;
@@ -646,7 +664,7 @@
 
   <!-- 3 -->
   <div class="project-card observe">
-    <img src="assets/ncis-sydney.png" alt="NCIS Sydney" loading="lazy">
+    <img src="assets/ncis-sydney.jpg" alt="NCIS Sydney" loading="lazy">
     <div class="project-overlay">
       <div class="project-type">Series · CBS</div>
       <div class="project-name">NCIS: SYDNEY S2 &amp; S3</div>
@@ -702,7 +720,7 @@
 
   <!-- 8 -->
   <div class="project-card observe">
-    <img src="assets/the-bluff.png" alt="The Bluff" loading="lazy">
+    <img src="assets/the-bluff.jpg" alt="The Bluff" loading="lazy">
     <div class="project-overlay">
       <div class="project-type">Film · Amazon</div>
       <div class="project-name">THE BLUFF</div>
@@ -814,6 +832,7 @@
 
   <!-- 18 -->
   <div class="project-card observe">
+    <a href="the-portable-door.html" class="card-page-link" aria-label="View The Portable Door project"></a>
     <img src="assets/the-portable-door.jpg" alt="The Portable Door" loading="lazy">
     <div class="project-overlay">
       <div class="project-type">Film · MGM+</div>
@@ -822,13 +841,14 @@
       <div class="project-links">
         <a href="https://www.imdb.com/title/tt11820950/" class="project-link" target="_blank">IMDB</a>
         <a href="https://www.youtube.com/watch?v=Rl7LPvFdrX8" class="project-link" target="_blank">Trailer</a>
+        <a href="the-portable-door.html" class="project-link project-link--breakdown">VFX Breakdown</a>
       </div>
     </div>
   </div>
 
   <!-- 19 -->
   <div class="project-card observe">
-    <img src="assets/dangerous-animals.png" alt="Dangerous Animals" loading="lazy">
+    <img src="assets/dangerous-animals.jpg" alt="Dangerous Animals" loading="lazy">
     <div class="project-overlay">
       <div class="project-type">Film · Amazon</div>
       <div class="project-name">DANGEROUS ANIMALS</div>

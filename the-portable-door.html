@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Portable Door — Future Associate</title>
+
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="mobile.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #000000;
+    --white: #f0ede8;
+    --pink: #ec008d;
+    --grey: #2a2a2a;
+    --mid: #888;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Libre Baskerville', Georgia, serif;
+    --font-mono: 'Courier Prime', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 1.5rem 3rem;
+    background: rgba(0,0,0,0.97);
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    top: 6px;
+  }
+
+  .nav-logo img {
+    height: 62px;
+    width: auto;
+    display: block;
+    mix-blend-mode: screen;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    position: relative;
+    top: 8px;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--pink); }
+
+  /* PAGE HEADER */
+  .project-header {
+    padding: 10rem 0 0 clamp(3rem, 6vw, 8rem);
+    border-bottom: 1px solid var(--grey);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: clamp(2rem, 4vw, 5rem);
+    align-items: stretch;
+  }
+
+  .project-header-text {
+    padding-bottom: 5rem;
+  }
+
+  .project-header-text {
+    min-width: 0;
+  }
+
+  /* poster column */
+  .project-header-poster {
+    position: relative;
+    width: clamp(200px, 22vw, 340px);
+    flex-shrink: 0;
+    align-self: stretch;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s forwards;
+  }
+
+  .project-header-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    filter: saturate(0.85) brightness(0.88);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
+    mask-image: linear-gradient(to right, transparent 0%, black 30%);
+  }
+
+  .poster-stat {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 1.2rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .poster-stat-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  .poster-stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-top: 0.2rem;
+  }
+
+  .project-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .project-meta {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .project-meta-item {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .project-meta-item span {
+    color: var(--white);
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+  }
+
+  /* BACK LINK */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.1s forwards;
+  }
+
+  .back-link:hover { color: var(--white); }
+
+  /* VFX BREAKDOWN VIDEO */
+  .breakdown-section {
+    padding: 5rem clamp(3rem, 6vw, 8rem);
+    border-bottom: 1px solid var(--grey);
+  }
+
+  .breakdown-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 2rem;
+  }
+
+  .video-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #111;
+    overflow: hidden;
+  }
+
+  .video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* PROJECT INFO */
+  .project-info {
+    padding: 5rem clamp(3rem, 6vw, 8rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    border-bottom: 1px solid var(--grey);
+  }
+
+  .info-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 1rem;
+  }
+
+  .info-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(240,237,232,0.8);
+  }
+
+  .info-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .info-link {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .info-link:hover {
+    color: var(--pink);
+    border-color: var(--pink);
+  }
+
+  .info-text + .info-text {
+    margin-top: 1.2rem;
+  }
+
+  .info-quote {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--pink);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(240,237,232,0.7);
+  }
+
+  .info-quote cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .vfx-highlights {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .vfx-highlight {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: rgba(240,237,232,0.6);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .vfx-highlight::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--pink);
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--grey);
+    margin: 0 clamp(3rem, 6vw, 8rem);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 6rem 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+  }
+
+  .footer-location {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .project-header {
+      grid-template-columns: 1fr;
+      padding: 8rem 1.5rem 3rem;
+    }
+    .project-header-text {
+      padding-bottom: 0;
+    }
+    .project-header-poster {
+      display: none;
+    }
+    .project-info {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul class="nav-links">
+    <li><a href="index.html#reel">Reel</a></li>
+    <li><a href="index.html#projects" class="active">Projects</a></li>
+    <li><a href="about.html">Leadership</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <a href="index.html" class="nav-logo"><img src="assets/fa_on_black_crop.jpg" alt="Future Associate"></a>
+</nav>
+
+<div id="page-content">
+
+<!-- PAGE HEADER -->
+<div class="project-header">
+  <div class="project-header-text">
+    <a href="index.html#projects" class="back-link">← All Projects</a>
+    <div class="project-eyebrow">VFX Breakdown · Film · MGM+</div>
+    <h1 class="project-title">The Portable<br>Door</h1>
+    <div class="project-meta">
+      <div class="project-meta-item">Studio<span>MGM+</span></div>
+      <div class="project-meta-item">Year<span>2023</span></div>
+      <div class="project-meta-item">Format<span>Feature Film</span></div>
+      <div class="project-meta-item">Cast<span>Christoph Waltz · Sam Neill</span></div>
+    </div>
+  </div>
+  <div class="project-header-poster">
+    <img src="assets/the-portable-door.jpg" alt="The Portable Door poster">
+    <div class="poster-stat">
+      <div class="poster-stat-num">140+</div>
+      <div class="poster-stat-label">VFX Shots</div>
+    </div>
+  </div>
+</div>
+
+<!-- VFX BREAKDOWN -->
+<div class="breakdown-section">
+  <div class="breakdown-label">/ VFX Breakdown</div>
+  <div class="video-embed">
+    <iframe
+      src="https://drive.google.com/file/d/1ZkbncIWUMPwzZJkx5B2p5tr3iIQFmTkv/preview"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<!-- PROJECT INFO -->
+<div class="project-info">
+  <div>
+    <div class="info-label">About the Project</div>
+    <p class="info-text">A fantasy comedy co-produced by The Jim Henson Company and Queensland's Story Bridge Films. Two junior employees at a mysterious London firm discover their CEO is plotting to upend the ancient magical order — starring Christoph Waltz and Sam Neill.</p>
+    <p class="info-text">Despite being set in England, the film was shot entirely in Australia, earning strong reviews upon release and MGM international distribution.</p>
+    <div class="info-links">
+      <a href="https://www.imdb.com/title/tt11820950/" class="info-link" target="_blank">IMDB →</a>
+      <a href="https://www.youtube.com/watch?v=Rl7LPvFdrX8" class="info-link" target="_blank">Official Trailer →</a>
+      <a href="https://www.ausfilm.com.au/news/future-associate-conjures-up-vfx-magic-for-the-portable-door/" class="info-link" target="_blank">Ausfilm Article →</a>
+    </div>
+  </div>
+  <div>
+    <div class="info-label">Our Work</div>
+    <p class="info-text">Future Associate delivered over 140 VFX shots across five months, led by VFX Supervisor Lindsay Adams. The work spanned some genuinely inventive technical challenges — from procedurally animated magical hair to high-energy particle simulations.</p>
+    <blockquote class="info-quote">
+      "The project really challenged us technically and creatively."
+      <cite>— Lindsay Adams, VFX Supervisor</cite>
+    </blockquote>
+    <div class="vfx-highlights">
+      <div class="vfx-highlight">Enchanted hair simulation — procedural strands that form the word "beware" while moving naturally, built in Houdini using HairGen and Vellum</div>
+      <div class="vfx-highlight">Magical beam effects for Christoph Waltz's character — POP/Pyro simulations with custom noise and randomised particle lightning</div>
+      <div class="vfx-highlight">Magical doorways, tractor beams, holograms, and orb battles</div>
+      <div class="vfx-highlight">Giant ear extensions and creature augmentation</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-location">Sydney, NSW &nbsp;·&nbsp; Australia</div>
+  <div class="footer-copy">© Future Associate Pty Ltd · All Rights Reserved</div>
+</footer>
+
+</div>
+<script src="transitions.js"></script>
+</body>
+</html>
