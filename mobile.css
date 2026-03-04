@@ -182,7 +182,7 @@ html, body {
 
   .projects {
     padding: 0 1.5rem 3rem !important;
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: 1fr !important;
   }
 
   /* On touch devices, show title/type + links at bottom edge */
