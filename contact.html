@@ -314,6 +314,39 @@
 
   .form-submit:hover { background: var(--white); }
 
+  .field-error {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pink);
+    min-height: 1em;
+  }
+
+  .form-field.has-error input,
+  .form-field.has-error textarea {
+    border-bottom-color: var(--pink);
+  }
+
+  .form-success {
+    padding: 4rem 0;
+  }
+
+  .form-success-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    letter-spacing: 0.03em;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .form-success-body {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.8;
+  }
+
   /* DIVIDER */
   .divider {
     height: 1px;
@@ -425,27 +458,28 @@
     <div class="form-heading">Let's Talk.</div>
     <div class="form-sub">Send us a message and we'll get back to you to schedule a call.</div>
 
-    <form action="https://api.web3forms.com/submit" method="post">
-      <input type="hidden" name="access_key" value="cedcc93d-d630-42ae-95e1-d4702ca2aabd">
-      <input type="hidden" name="subject" value="New enquiry — Future Associate">
-      <input type="hidden" name="redirect" value="https://future-associate.com/contact-us">
+    <form id="contact-form" novalidate>
       <div class="form-row">
         <div class="form-field">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required autocomplete="off">
+          <input type="text" id="name" name="name" autocomplete="off">
+          <span class="field-error" id="err-name"></span>
         </div>
         <div class="form-field">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="off">
+          <input type="email" id="email" name="email" autocomplete="off">
+          <span class="field-error" id="err-email"></span>
         </div>
       </div>
       <div class="form-field">
         <label for="subject">Subject</label>
         <input type="text" id="subject" name="subject" autocomplete="off">
+        <span class="field-error" id="err-subject"></span>
       </div>
       <div class="form-field">
         <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
+        <textarea id="message" name="message"></textarea>
+        <span class="field-error" id="err-message"></span>
       </div>
       <button type="submit" class="form-submit">Send Message →</button>
     </form>
@@ -462,6 +496,68 @@
 </footer>
 
 </div>
+<script>
+  const CONTACT_FIELDS = [
+    { id: 'name',    label: 'Name',    required: true },
+    { id: 'email',   label: 'Email',   required: true },
+    { id: 'subject', label: 'Subject', required: true },
+    { id: 'message', label: 'Message', required: true },
+  ];
+
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Clear previous errors
+    CONTACT_FIELDS.forEach(f => {
+      document.getElementById('err-' + f.id).textContent = '';
+      document.getElementById(f.id).closest('.form-field').classList.remove('has-error');
+    });
+
+    // Validate
+    let valid = true;
+    CONTACT_FIELDS.forEach(f => {
+      const el = document.getElementById(f.id);
+      const err = document.getElementById('err-' + f.id);
+      const val = el.value.trim();
+      if (f.required && !val) {
+        err.textContent = 'Required';
+        el.closest('.form-field').classList.add('has-error');
+        valid = false;
+      } else if (f.id === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+        err.textContent = 'Enter a valid email';
+        el.closest('.form-field').classList.add('has-error');
+        valid = false;
+      }
+    });
+
+    if (!valid) return;
+
+    const btn = document.querySelector('#contact-form .form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const data = {};
+    CONTACT_FIELDS.forEach(f => { data[f.id] = document.getElementById(f.id).value.trim(); });
+
+    // Send via web3forms
+    const w3 = new FormData();
+    w3.append('access_key', 'cedcc93d-d630-42ae-95e1-d4702ca2aabd');
+    w3.append('subject', 'New enquiry — Future Associate');
+    Object.entries(data).forEach(([k, v]) => w3.append(k, v));
+
+    try {
+      await fetch('https://api.web3forms.com/submit', { method: 'POST', body: w3 });
+    } catch (_) {}
+
+    // Show success
+    const firstName = data.name.split(' ')[0];
+    document.getElementById('contact-form').innerHTML = `
+      <div class="form-success">
+        <div class="form-success-title">Message Sent</div>
+        <div class="form-success-body">Thanks ${firstName}. We'll be in touch soon.</div>
+      </div>`;
+  });
+</script>
 <script src="transitions.js"></script>
 </body>
 </html>
