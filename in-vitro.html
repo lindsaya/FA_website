@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Equalizer 3 — Future Associate</title>
+<title>In Vitro — Future Associate</title>
 
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="mobile.css">
@@ -100,7 +100,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 10%;
+    object-position: center top;
     display: block;
     filter: brightness(0.38) saturate(0.7);
   }
@@ -207,6 +207,7 @@
     font-size: 0.9rem;
   }
 
+  /* BACK LINK */
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -225,6 +226,7 @@
 
   .back-link:hover { color: var(--white); }
 
+  /* VFX BREAKDOWN VIDEO */
   .breakdown-section {
     padding: 5rem clamp(3rem, 6vw, 8rem);
     border-top: 1px solid var(--grey);
@@ -256,6 +258,7 @@
     border: none;
   }
 
+  /* PROJECT INFO */
   .project-info {
     padding: 5rem clamp(3rem, 6vw, 8rem);
     display: grid;
@@ -328,6 +331,7 @@
     color: var(--pink);
   }
 
+  /* FOOTER */
   footer {
     padding: 6rem 3rem 5rem;
     display: flex;
@@ -384,20 +388,32 @@
 <!-- PAGE HEADER -->
 <div class="project-header">
   <div class="project-header-bg">
-    <img src="assets/the-equalizer-3.jpg" alt="The Equalizer 3">
+    <img src="assets/in-vitro.jpg" alt="In Vitro">
   </div>
   <a href="index.html#projects" class="back-link" style="margin-top: 8rem;">← All Projects</a>
-  <div class="project-eyebrow">VFX Breakdown · Film · Sony Pictures</div>
-  <h1 class="project-title">The<br>Equalizer 3</h1>
+  <div class="project-eyebrow">VFX · Film</div>
+  <h1 class="project-title">In Vitro</h1>
   <div class="project-meta">
-    <div class="project-meta-item">Studio<span>Sony Pictures</span></div>
-    <div class="project-meta-item">Year<span>2023</span></div>
+    <div class="project-meta-item">Year<span>2024</span></div>
     <div class="project-meta-item">Format<span>Feature Film</span></div>
   </div>
   <div class="poster-stat">
-    <div class="poster-stat-num">150+</div>
+    <div class="poster-stat-num">40+</div>
     <div class="poster-stat-label">VFX Shots</div>
     <div class="poster-stat-delivered">Delivered.</div>
+  </div>
+</div>
+
+<!-- VFX BREAKDOWN -->
+<div class="breakdown-section">
+  <div class="breakdown-label">/ VFX Breakdown</div>
+  <div class="video-embed">
+    <iframe
+      src="https://www.youtube.com/embed/0BX6OxgzgFE"
+      title="In Vitro — Future Associate VFX Breakdown"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen>
+    </iframe>
   </div>
 </div>
 
@@ -405,25 +421,21 @@
 <div class="project-info">
   <div>
     <div class="info-label">About the Project</div>
-    <p class="info-text">The third and final chapter of Antoine Fuqua's Equalizer franchise, starring Denzel Washington. Robert McCall finds refuge in the sun-drenched south of Italy — until the local Camorra threatens the community he has come to call home.</p>
-    <p class="info-text">A Sony Pictures release, the film was a major international production with significant VFX requirements across its action sequences — and an opportunity to send off the franchise with genuine visual impact.</p>
-    <div class="info-links">
-      <a href="https://www.imdb.com/title/tt17024450/" class="info-link" target="_blank">IMDB →</a>
-      <a href="https://www.youtube.com/watch?v=19ikl8vy4zs" class="info-link" target="_blank">Official Trailer →</a>
-    </div>
+    <p class="info-text">A sci-fi feature set in the near future, In Vitro follows a story centred on cow clones — a high-concept premise that demanded photorealistic CG animal work capable of holding up alongside live performance and real locations.</p>
+    <p class="info-text">The film premiered at the Sydney Film Festival in June 2024, and represents a technically ambitious project for an independent Australian production.</p>
   </div>
   <div>
     <div class="info-label">Our Work</div>
-    <p class="info-text">Future Associate delivered over 150 VFX shots — a significant body of work spanning the film's most visceral sequences. The opening wine cellar scene set the tone: bullet wounds, blood, gore, and wine spray built shot by shot, with wine streams animated in Houdini using velocity bursts and Flip simulations.</p>
-    <p class="info-text">The van crash sequence was rebuilt entirely in CGI — digital doubles of both environment and actor created from on-set scans, with cracked glass, hood smoke, and blood composited throughout. Elsewhere, skylight stunt sequences required CGI face replacements, with on-set scan data used as texture base and refined through spline warping and colour grading.</p>
+    <p class="info-text">Future Associate delivered 40+ VFX shots, anchored by the construction of a fully CG cow — built to match the live-action animal cast in the film, then deployed across a range of environments including indoor scenes, outdoor locations, and a water tank sequence.</p>
+    <p class="info-text">The water tank work was the most technically demanding: a full fluid simulation built in Houdini, with the CG cow operating as a collision object to drive water displacement, white-water foam, and surface interaction. Rotoscoping and plate warping were used throughout to ground the CG animal convincingly in each environment.</p>
     <div class="vfx-highlights">
-      <div class="vfx-highlight">Wine cellar opening — blood, gore, wine spray and barrel compositing; Houdini Flip simulations</div>
-      <div class="vfx-highlight">Van crash — full CGI recreation from set scans, digital doubles, cracked glass and smoke</div>
-      <div class="vfx-highlight">CGI face replacements for skylight stunt sequences, grounded with on-set scan data</div>
-      <div class="vfx-highlight">150+ shots across the full film spanning action, effects and environment work</div>
+      <div class="vfx-highlight">CG cow built from live-action reference, deployed across indoor, outdoor and water environments</div>
+      <div class="vfx-highlight">Water tank sequence — Houdini fluid sim with CG cow as collider, white-water foam and surface interaction</div>
+      <div class="vfx-highlight">Rotoscoping and plate warping to integrate CG animal with practical photography</div>
+      <div class="vfx-highlight">Digital set extensions — schoolyard, signage, vehicle decals and background buildings for near-future look</div>
     </div>
     <div class="info-links">
-      <a href="https://www.ausfilm.com.au/news/future-associate-serve-up-killer-vfx-for-equalizer-3/" class="info-link" target="_blank">Ausfilm Feature →</a>
+      <a href="https://www.ausfilm.com.au/news/vfx-house-future-associates-cg-skills-on-show-in-in-vitro/" class="info-link" target="_blank">Ausfilm Feature →</a>
     </div>
   </div>
 </div>
