@@ -252,6 +252,21 @@
     scroll-margin-top: 80px;
   }
 
+  .archive-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .archive-cta:hover { color: var(--pink); }
+
   .section-label {
     font-family: var(--font-mono);
     font-size: 1rem;
@@ -304,7 +319,7 @@
     z-index: 1;
   }
 
-  .project-card:hover {
+  .project-card.card-active {
     z-index: 10;
   }
 
@@ -325,7 +340,7 @@
     filter: saturate(0.7) brightness(0.85);
   }
 
-  .project-card:hover .card-image img {
+  .project-card.card-active .card-image img {
     transform: scale(1.04);
     filter: saturate(1) brightness(1);
   }
@@ -340,7 +355,7 @@
     transition: bottom 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .project-card:hover .project-overlay {
+  .project-card.card-active .project-overlay {
     bottom: -3rem;
   }
 
@@ -379,7 +394,7 @@
     transition: max-height 0.4s ease, opacity 0.35s ease 0.05s;
   }
 
-  .project-card:hover .project-desc {
+  .project-card.card-active .project-desc {
     max-height: 100px;
     opacity: 1;
   }
@@ -395,7 +410,7 @@
     transition: max-height 0.4s ease, opacity 0.3s ease 0.1s;
   }
 
-  .project-card:hover .project-links {
+  .project-card.card-active .project-links {
     max-height: 40px;
     opacity: 1;
   }
@@ -954,7 +969,7 @@
 </div>
 
 <div style="padding: 2.5rem clamp(3rem, 6vw, 8rem); border-top: 1px solid var(--grey);">
-  <a href="archive.html" style="font-family: 'Courier Prime', monospace; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--mid)'">Project Archive →</a>
+  <a href="archive.html" class="archive-cta">Project Archive →</a>
 </div>
 
 <div class="divider"></div>
@@ -1024,6 +1039,22 @@
   }, { threshold: 0.08 });
 
   document.querySelectorAll('.observe').forEach(el => observer.observe(el));
+
+  // Card hover — poster image is the trigger zone, not the overlay
+  const cards = document.querySelectorAll('.project-card');
+
+  cards.forEach(card => {
+    const image = card.querySelector('.card-image');
+    const overlay = card.querySelector('.project-overlay');
+
+    function activate() {
+      cards.forEach(c => c.classList.remove('card-active'));
+      card.classList.add('card-active');
+    }
+
+    image.addEventListener('mouseenter', activate);
+    overlay.addEventListener('mouseenter', activate);
+  });
 
   // Nav background on scroll
   const nav = document.querySelector('nav');
