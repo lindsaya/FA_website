@@ -238,14 +238,14 @@ html, body {
     padding: 0 1.5rem 3rem !important;
   }
 
-  /* Pull poster-stat out of absolute position — flow it below the meta items */
+  /* Pull poster-stat out of absolute position — flow it below the meta items, right-justified */
   .poster-stat {
     position: relative !important;
     z-index: 2 !important;
     bottom: auto !important;
     right: auto !important;
     margin-top: 1.5rem !important;
-    align-self: flex-start !important;
+    align-self: flex-end !important;
   }
 
   .poster-stat-num {
