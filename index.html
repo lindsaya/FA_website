@@ -252,20 +252,27 @@
     scroll-margin-top: 80px;
   }
 
+  .archive-wrap {
+    padding: 2.5rem clamp(3rem, 6vw, 8rem);
+    border-top: 1px solid var(--grey);
+  }
+
   .archive-cta {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.8rem;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
+    color: var(--white);
     text-decoration: none;
-    transition: color 0.2s;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.9rem 2rem;
+    transition: color 0.2s, border-color 0.2s;
   }
 
-  .archive-cta:hover { color: var(--pink); }
+  .archive-cta:hover { color: var(--pink); border-color: var(--pink); }
 
   .section-label {
     font-family: var(--font-mono);
@@ -968,7 +975,7 @@
 
 </div>
 
-<div style="padding: 2.5rem clamp(3rem, 6vw, 8rem); border-top: 1px solid var(--grey);">
+<div class="archive-wrap">
   <a href="archive.html" class="archive-cta">Project Archive →</a>
 </div>
 
@@ -988,7 +995,7 @@
       <div class="cred-body">
         Australia's <strong>30% PDV Offset</strong> combined with the <strong>NSW Government's 10% rebate</strong> means productions using Future Associate's VFX services qualify for up to 40 cents back on every dollar spent.
       </div>
-      <img src="assets/Ausfilm_logo.svg.png" alt="Ausfilm" style="height:165px; width:auto; display:block; flex-shrink:0; filter:saturate(0);">
+      <img src="assets/Ausfilm_logo.svg.png" alt="Ausfilm" style="height:auto; width:165px; display:block; flex-shrink:0; filter:saturate(0);">
     </div>
     <div class="cred-link"><a href="http://www.ausfilm.com.au/incentives/post-digital-and-visual-effects-production-pdv-offset/" target="_blank">Learn more at Ausfilm</a>.</div>
   </div>

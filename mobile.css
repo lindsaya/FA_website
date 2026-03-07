@@ -183,16 +183,28 @@ html, body {
   .projects {
     padding: 0 1.5rem 3rem !important;
     grid-template-columns: 1fr !important;
+    row-gap: 3rem !important;
   }
 
-  /* On touch devices, show title/type + links at bottom edge */
+  /* On mobile: overlay flows naturally below the poster, no absolute tricks */
   .project-overlay {
-    transform: translateY(18%) !important;
+    position: static !important;
+    transform: none !important;
+    background: none !important;
+    padding: 0.75rem 0 0 !important;
+  }
+
+  .project-name {
+    font-size: 1.3rem !important;
+  }
+
+  .project-type {
+    font-size: 0.7rem !important;
+    margin-top: 0.2rem !important;
   }
 
   .project-links {
-    max-height: none !important;
-    opacity: 1 !important;
+    display: none !important;
   }
 
   .project-desc {
@@ -201,6 +213,53 @@ html, body {
 
   .why-word {
     display: block !important;
+  }
+
+  /* ================================
+     PROJECT ARCHIVE LINK
+     ================================ */
+
+  .archive-wrap {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .archive-cta {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 1rem 1.5rem !important;
+  }
+
+  /* ================================
+     PROJECT DETAIL PAGES (shared across all project pages)
+     ================================ */
+
+  .project-header {
+    min-height: 90vw !important;
+    padding: 0 1.5rem 3rem !important;
+  }
+
+  /* Pull poster-stat out of absolute position — flow it below the meta items */
+  .poster-stat {
+    position: relative !important;
+    z-index: 2 !important;
+    bottom: auto !important;
+    right: auto !important;
+    margin-top: 1.5rem !important;
+    align-self: flex-start !important;
+  }
+
+  .poster-stat-num {
+    font-size: clamp(2.5rem, 10vw, 3.5rem) !important;
+  }
+
+  .poster-stat-label,
+  .poster-stat-delivered {
+    font-size: clamp(0.9rem, 3.5vw, 1.4rem) !important;
+  }
+
+  .project-info {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
   }
 
   /* ================================
