@@ -76,7 +76,7 @@
 
   .nav-links a {
     font-family: 'Barlow', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     line-height: 1;
     letter-spacing: 0.3em;
     text-transform: uppercase;
@@ -162,7 +162,7 @@
     font-family: var(--font-body);
     font-style: italic;
     font-size: 1.15rem;
-    color: var(--mid);
+    color: var(--white);
     max-width: 380px;
     line-height: 1.6;
   }
@@ -186,10 +186,10 @@
 
   .stat-label {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--mid);
+    color: var(--white);
     margin-top: 0.3rem;
   }
 
@@ -246,11 +246,26 @@
   /* SECTION HEADER */
   .section-header {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     gap: 1.5rem;
     padding: 5rem 3rem 3rem;
     scroll-margin-top: 80px;
   }
+
+  .all-projects-link {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+    padding-bottom: 0.2rem;
+  }
+
+  .all-projects-link:hover { color: var(--pink); }
 
   .archive-wrap {
     padding: 2.5rem clamp(3rem, 6vw, 8rem);
@@ -292,10 +307,10 @@
 
   .section-sub {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 1rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
+    color: var(--white);
     margin-top: 0.3rem;
   }
 
@@ -481,7 +496,7 @@
     padding-top: 2rem;
     font-family: var(--font-body);
     font-size: 0.9rem;
-    color: var(--mid);
+    color: var(--white);
     line-height: 1.8;
   }
 
@@ -511,7 +526,7 @@
   .cred-body {
     font-family: var(--font-body);
     font-size: 0.9rem;
-    color: var(--mid);
+    color: var(--white);
     line-height: 1.8;
     max-width: 380px;
   }
@@ -645,7 +660,7 @@
 <div class="reel-section">
   <div class="reel-embed">
     <iframe
-      src="https://player.vimeo.com/video/1169769347?autoplay=1&muted=1&loop=1"
+      src="https://player.vimeo.com/video/1169769347?autoplay=1&muted=1&loop=1&controls=0"
       title="Future Associate Reel"
       frameborder="0"
       allow="autoplay; fullscreen; picture-in-picture"
@@ -663,6 +678,7 @@
     <h2 class="section-title">Projects</h2>
     <p class="section-sub">Selected Work</p>
   </div>
+  <a href="archive.html" class="all-projects-link">All Projects →</a>
 </div>
 
 <div class="projects">
@@ -976,7 +992,7 @@
 </div>
 
 <div class="archive-wrap">
-  <a href="archive.html" class="archive-cta">Project Archive →</a>
+  <a href="archive.html" class="archive-cta">All Projects →</a>
 </div>
 
 <div class="divider"></div>
@@ -995,7 +1011,7 @@
       <div class="cred-body">
         Australia's <strong>30% PDV Offset</strong> combined with the <strong>NSW Government's 10% rebate</strong> means productions using Future Associate's VFX services qualify for up to 40 cents back on every dollar spent.
       </div>
-      <img src="assets/Ausfilm_logo.svg.png" alt="Ausfilm" style="height:auto; width:165px; display:block; flex-shrink:0; filter:saturate(0);">
+      <img src="assets/Ausfilm_logo.svg.png" alt="Ausfilm" style="height:auto; width:165px; display:block; flex-shrink:0; filter: brightness(0) invert(1);">
     </div>
     <div class="cred-link"><a href="http://www.ausfilm.com.au/incentives/post-digital-and-visual-effects-production-pdv-offset/" target="_blank">Learn more at Ausfilm</a>.</div>
   </div>
