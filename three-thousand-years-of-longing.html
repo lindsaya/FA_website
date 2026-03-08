@@ -6,148 +6,16 @@
 <title>Three Thousand Years of Longing — Future Associate</title>
 
 <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="nav.css">
 <link rel="stylesheet" href="mobile.css">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --black: #000000;
-    --white: #f0ede8;
-    --pink: #ec008d;
-    --grey: #2a2a2a;
-    --mid: #888;
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-body: 'Libre Baskerville', Georgia, serif;
-    --font-mono: 'Courier Prime', monospace;
-  }
-
-  html { scroll-behavior: smooth; }
-  body { background: var(--black); color: var(--white); font-family: var(--font-body); overflow-x: hidden; }
-
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: flex-end; padding: 1.5rem 3rem; background: rgba(0,0,0,0.97); }
-  .nav-logo { text-decoration: none; position: relative; display: flex; align-items: flex-start; top: 6px; }
-  .nav-logo img { height: 62px; width: auto; display: block; mix-blend-mode: screen; }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; position: relative; top: 8px; }
-  .nav-links a { font-family: 'Barlow', sans-serif; font-size: 0.9rem; line-height: 1; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 700; color: var(--white); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover, .nav-links a.active { color: var(--pink); }
-
-  .project-header {
-    position: relative;
-    min-height: clamp(480px, 75vw, 780px);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 clamp(3rem, 6vw, 8rem) 4rem;
-    overflow: hidden;
-  }
-
-  .project-header-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  .project-header-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 10%;
-    display: block;
-    filter: brightness(0.38) saturate(0.7);
-  }
-
-  .project-header-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom,
-      rgba(0,0,0,0.2) 0%,
-      rgba(0,0,0,0.15) 40%,
-      rgba(0,0,0,0.6) 70%,
-      rgba(0,0,0,0.92) 100%);
-  }
-
-  .project-header > *:not(.project-header-bg):not(.poster-stat) {
-    position: relative;
-    z-index: 2;
-  }
-
-  .poster-stat {
-    position: absolute;
-    bottom: 4rem;
-    right: clamp(3rem, 6vw, 8rem);
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.8s forwards;
-  }
-
-  .poster-stat-num {
-    font-family: var(--font-display);
-    font-size: clamp(3.5rem, 7vw, 6rem);
-    line-height: 1;
-    color: var(--white);
-    letter-spacing: 0.02em;
-  }
-
-  .poster-stat-label {
-    font-family: var(--font-display);
-    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-    line-height: 1;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-top: 0.2rem;
-  }
-
-  .poster-stat-delivered {
-    font-family: var(--font-display);
-    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-    line-height: 1;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--pink);
-  }
-
-  .project-eyebrow { font-family: var(--font-mono); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--pink); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
-  .project-title { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 8rem); line-height: 0.9; letter-spacing: 0.02em; color: var(--white); opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
-  .project-meta { margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
-  .project-meta-item { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); }
-  .project-meta-item span { color: var(--white); display: block; margin-top: 0.3rem; font-size: 0.9rem; }
-
-  .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); text-decoration: none; margin-bottom: 2rem; transition: color 0.2s; opacity: 0; animation: fadeUp 0.8s 0.1s forwards; }
-  .back-link:hover { color: var(--white); }
-
-  .project-info { padding: 5rem clamp(3rem, 6vw, 8rem); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; border-top: 1px solid var(--grey); border-bottom: 1px solid var(--grey); }
-  .info-label { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--pink); margin-bottom: 1rem; }
-  .info-text { font-size: 1rem; line-height: 1.8; color: rgba(240,237,232,0.8); }
-  .info-text + .info-text { margin-top: 1.2rem; }
-  .info-links { display: flex; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
-  .info-link { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
-  .info-link:hover { color: var(--pink); border-color: var(--pink); }
-
-  footer { padding: 6rem 3rem 5rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.2rem; }
-  .footer-location { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--mid); }
-  .footer-copy { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; color: #555; margin-top: 0.5rem; }
-
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-  @media (max-width: 768px) {
-    .project-header { min-height: 90vw; padding: 0 1.5rem 3rem; }
-    .poster-stat { bottom: 3rem; right: 1.5rem; }
-    .project-info { grid-template-columns: 1fr; gap: 2.5rem; }
-  }
-</style>
+<link id="page-css" rel="stylesheet" href="three-thousand-years-of-longing.css">
 </head>
 <body>
 
 <nav>
   <ul class="nav-links">
     <li><a href="index.html#reel">Reel</a></li>
-    <li><a href="index.html#projects" class="active">Projects</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
     <li><a href="studio.html">Studio</a></li>
     <li><a href="careers.html">Careers</a></li>
     <li><a href="contact.html">Contact</a></li>
@@ -162,7 +30,7 @@
   <div class="project-header-bg">
     <img src="assets/three-thousand-years-of-longing.jpg" alt="Three Thousand Years of Longing">
   </div>
-  <a href="index.html#projects" class="back-link" style="margin-top: 8rem;">← All Projects</a>
+  <a href="index.html#projects" class="back-link" style="margin-top: 8rem;">← Projects</a>
   <div class="project-eyebrow">VFX · Film · MGM</div>
   <h1 class="project-title">Three Thousand<br>Years of Longing</h1>
   <div class="project-meta">
@@ -199,6 +67,7 @@
 </footer>
 
 </div>
+<script src="nav.js"></script>
 <script src="transitions.js"></script>
 </body>
 </html>

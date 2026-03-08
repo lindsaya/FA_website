@@ -7,604 +7,9 @@
 
 
 <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="mobile.css">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --black: #000000;
-    --white: #f0ede8;
-    --pink: #ec008d;
-    --grey: #2a2a2a;
-    --mid: #888;
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-body: 'Libre Baskerville', Georgia, serif;
-    --font-mono: 'Courier Prime', monospace;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: var(--font-body);
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 1.5rem 3rem;
-    mix-blend-mode: normal;
-  }
-
-  nav::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
-    pointer-events: none;
-  }
-
-  .nav-logo {
-    text-decoration: none;
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    top: 6px;
-  }
-
-  .nav-logo img {
-    height: 62px;
-    width: auto;
-    display: block;
-    mix-blend-mode: screen;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-    position: relative;
-    top: 8px;
-  }
-
-  .nav-links a {
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.9rem;
-    line-height: 1;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--pink); }
-
-  /* HERO */
-  .hero-main {
-    margin-top: 14rem;
-    text-align: left;
-  }
-
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 4rem 3rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse at 70% 40%, rgba(232,65,106,0.08) 0%, transparent 60%),
-      radial-gradient(ellipse at 20% 80%, rgba(232,65,106,0.04) 0%, transparent 50%);
-  }
-
-  .hero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    opacity: 0.4;
-    pointer-events: none;
-  }
-
-  .hero-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--pink);
-    margin-top: 1.2rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
-  }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(5rem, 12vw, 13rem);
-    line-height: 0.9;
-    letter-spacing: 0.02em;
-    color: var(--white);
-      opacity: 0;
-    animation: fadeUp 0.8s 0.4s forwards;
-  }
-
-  .hero-title em {
-    font-style: normal;
-    color: var(--pink);
-  }
-
-  .hero-sub {
-    margin-top: 7rem;
-    display: flex;
-    gap: 4rem;
-    align-items: flex-end;
-    justify-content: flex-start;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.6s forwards;
-  }
-
-  .hero-tagline {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: 1.15rem;
-    color: var(--white);
-    max-width: 380px;
-    line-height: 1.6;
-  }
-
-  .hero-stats {
-    display: flex;
-    gap: 3rem;
-    margin-left: 0;
-  }
-
-  .stat {
-    text-align: left;
-  }
-
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    color: var(--white);
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-top: 0.3rem;
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 2rem;
-    right: 3rem;
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.2em;
-    color: var(--mid);
-    writing-mode: vertical-rl;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    opacity: 0;
-    animation: fadeIn 1s 1.2s forwards;
-  }
-
-  .scroll-hint::before {
-    content: '';
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, var(--mid));
-  }
-
-  /* DIVIDER */
-  .divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--grey), transparent);
-    margin: 0 3rem;
-  }
-
-  /* REEL */
-  .reel-section {
-    padding: 0 3rem;
-  }
-
-  .reel-embed {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-  }
-
-  .reel-embed iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  /* SECTION HEADER */
-  .section-header {
-    display: flex;
-    align-items: flex-end;
-    gap: 1.5rem;
-    padding: 5rem 3rem 3rem;
-    scroll-margin-top: 80px;
-  }
-
-  .all-projects-link {
-    margin-left: auto;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.2s;
-    padding-bottom: 0.2rem;
-  }
-
-  .all-projects-link:hover { color: var(--pink); }
-
-  .archive-wrap {
-    padding: 2.5rem clamp(3rem, 6vw, 8rem);
-    border-top: 1px solid var(--grey);
-  }
-
-  .archive-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--white);
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 0.9rem 2rem;
-    transition: color 0.2s, border-color 0.2s;
-  }
-
-  .archive-cta:hover { color: var(--pink); border-color: var(--pink); }
-
-  .section-label {
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--pink);
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    letter-spacing: 0.05em;
-    color: var(--white);
-  }
-
-  .section-sub {
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-top: 0.3rem;
-  }
-
-  /* PROJECTS GRID */
-  .projects {
-    padding: 0 clamp(3rem, 6vw, 8rem) 6rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 1.5rem;
-    row-gap: 6rem;
-  }
-
-  @media (orientation: portrait) {
-    .hero { min-height: 60vh; }
-  }
-
-  @media (max-width: 900px) {
-    .projects { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 600px) {
-    .projects { grid-template-columns: 1fr; }
-  }
-
-  .project-card {
-    position: relative;
-    cursor: pointer;
-    z-index: 1;
-  }
-
-  .project-card.card-active {
-    z-index: 10;
-  }
-
-  .card-image {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 2 / 3;
-    background: #000;
-  }
-
-  .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s;
-    filter: saturate(0.7) brightness(0.85);
-  }
-
-  .project-card.card-active .card-image img {
-    transform: scale(1.04);
-    filter: saturate(1) brightness(1);
-  }
-
-  .project-overlay {
-    position: absolute;
-    bottom: -6rem; left: 0; right: 0;
-    padding: 7rem 1.4rem 1.4rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.92) 45%, rgba(0,0,0,0.6) 70%, transparent 100%);
-    display: flex;
-    flex-direction: column;
-    transition: bottom 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
-  .project-card.card-active .project-overlay {
-    bottom: -3rem;
-  }
-
-  .project-type {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--pink);
-    margin-top: 0.3rem;
-    order: 2;
-    text-shadow: 0 1px 8px rgba(0,0,0,1);
-  }
-
-  .project-name {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    letter-spacing: 0.06em;
-    color: var(--white);
-    line-height: 1.1;
-    order: 1;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.9);
-  }
-
-  .project-desc {
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    color: rgba(240,237,232,0.9);
-    line-height: 1.5;
-    margin-top: 0.6rem;
-    order: 3;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.35s ease 0.05s;
-  }
-
-  .project-card.card-active .project-desc {
-    max-height: 100px;
-    opacity: 1;
-  }
-
-  .project-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 0.8rem;
-    order: 4;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.3s ease 0.1s;
-  }
-
-  .project-card.card-active .project-links {
-    max-height: 40px;
-    opacity: 1;
-  }
-
-  .project-link {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--white);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    padding-bottom: 2px;
-    transition: color 0.2s, border-color 0.2s;
-  }
-
-  .project-link:hover {
-    color: var(--pink);
-    border-color: var(--pink);
-  }
-
-  /* Clickable card overlay link */
-  .card-page-link {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-  }
-
-  /* Breakdown link sits above the card overlay */
-  .project-links {
-    position: relative;
-    z-index: 2;
-  }
-
-  .project-link--breakdown {
-    color: var(--pink);
-    border-color: rgba(236,0,141,0.4);
-  }
-
-  /* CREDENTIALS */
-  .credentials {
-    padding: 6rem clamp(3rem, 12vw, 16rem);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--grey);
-    border-top: 1px solid var(--grey);
-    border-bottom: 1px solid var(--grey);
-  }
-
-  .cred-block {
-    background: var(--black);
-    padding: 4rem 3rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .cred-link {
-    margin-top: auto;
-    padding-top: 2rem;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--white);
-    line-height: 1.8;
-  }
-
-  .cred-link a {
-    color: var(--white);
-    text-decoration: underline;
-    text-decoration-color: var(--pink);
-    text-underline-offset: 3px;
-  }
-
-  .cred-icon {
-    font-family: var(--font-display);
-    font-size: 3.5rem;
-    color: var(--pink);
-    line-height: 1;
-    margin-bottom: 1.5rem;
-  }
-
-  .cred-title {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    letter-spacing: 0.05em;
-    color: var(--white);
-    margin-bottom: 1rem;
-  }
-
-  .cred-body {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--white);
-    line-height: 1.8;
-    max-width: 380px;
-  }
-
-  .cred-body a {
-    color: var(--white);
-    text-decoration: underline;
-    text-decoration-color: var(--pink);
-    text-underline-offset: 3px;
-  }
-
-  .cred-body strong {
-    color: var(--white);
-  }
-
-  .cred-img-row {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  /* FOOTER */
-  footer {
-    padding: 6rem 3rem 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.2rem;
-  }
-
-  .footer-wordmark {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 8vw, 7rem);
-    letter-spacing: 0.08em;
-    color: rgba(240,237,232,0.08);
-    line-height: 1;
-  }
-
-  .footer-location {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--mid);
-  }
-
-  .footer-copy {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    color: #555;
-    margin-top: 0.5rem;
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  /* Observe-based fade for cards */
-  .observe {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .observe.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
+<link id="page-css" rel="stylesheet" href="index.css">
 </head>
 <body>
 
@@ -660,12 +65,25 @@
 <div class="reel-section">
   <div class="reel-embed">
     <iframe
+      id="reel-iframe"
       src="https://player.vimeo.com/video/1169769347?autoplay=1&muted=1&loop=1&controls=0"
       title="Future Associate Reel"
       frameborder="0"
       allow="autoplay; fullscreen; picture-in-picture"
       allowfullscreen>
     </iframe>
+    <div class="reel-scrubber" id="reel-scrubber">
+      <div class="reel-scrubber-row">
+        <div class="reel-progress-track" id="reel-track">
+          <div class="reel-progress-fill" id="reel-fill"></div>
+        </div>
+        <button class="reel-fullscreen-btn" id="reel-fullscreen" title="Fullscreen">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 6V1H6M10 1H15V6M15 10V15H10M6 15H1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -678,7 +96,7 @@
     <h2 class="section-title">Projects</h2>
     <p class="section-sub">Selected Work</p>
   </div>
-  <a href="archive.html" class="all-projects-link">All Projects →</a>
+  <a href="all-projects.html" class="all-projects-link">All Projects →</a>
 </div>
 
 <div class="projects">
@@ -690,309 +108,311 @@
       <img src="assets/mortal-kombat-2.jpg" alt="Mortal Kombat 2" loading="lazy">
     </div>
     <div class="project-overlay">
-      <div class="project-type">Film · Warner Bros.</div>
-      <div class="project-name">MORTAL KOMBAT 2</div>
-      <div class="project-desc">Champions face off in an ultimate battle against the dark rule of Shao Kahn threatening the Earthrealm.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt17490712/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=ZdC5mFHPldg" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-title-row">
+    <div class="project-name">MORTAL KOMBAT 2</div>
+    <div class="shot-num">200+</div>
   </div>
-
-  <!-- 2 -->
+  <div class="project-meta"><span class="project-type">Film · Warner Bros.</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">CG set extensions, FX</div>
+  <div class="project-links">
+    <a href="mortal-kombat-2.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
+  </div><!-- 2 -->
   <div class="project-card observe">
     <div class="card-image">
       <a href="the-bluff.html" class="card-page-link"></a>
       <img src="assets/the-bluff.jpg" alt="The Bluff" loading="lazy">
     </div>
     <div class="project-overlay">
-      <div class="project-type">Film · Amazon</div>
-      <div class="project-name">THE BLUFF</div>
-      <div class="project-desc">A Caribbean woman's secret past is revealed when vicious buccaneers invade her island.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt14181714/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=uUYMqRjNxhM" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-title-row">
+    <div class="project-name">THE BLUFF</div>
+    <div class="shot-num">150+</div>
   </div>
-
-  <!-- 3 -->
+  <div class="project-meta"><span class="project-type">Film · Amazon</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">FX ocean, FX blood &amp; gore, set extensions, CG boats</div>
+  <div class="project-links">
+    <a href="the-bluff.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
+  </div><!-- 3 -->
   <div class="project-card observe">
     <div class="card-image">
       <a href="elvis.html" class="card-page-link"></a>
       <img src="assets/elvis.jpg" alt="Elvis" loading="lazy">
     </div>
     <div class="project-overlay">
-      <div class="project-type">Film · Warner Bros.</div>
-      <div class="project-name">ELVIS</div>
-      <div class="project-desc">Baz Luhrmann's epic portrait of the legendary rock and roll star.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt3704428/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=wBDLRvjHVOY" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-title-row">
+    <div class="project-name">ELVIS</div>
+    <div class="shot-num">100+</div>
   </div>
-
-  <!-- 4 -->
+  <div class="project-meta"><span class="project-type">Film · Warner Bros.</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">CG environments, CG vehicles, digital doubles, compositing</div>
+  <div class="project-links">
+    <a href="elvis.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
+  </div><!-- 4 -->
   <div class="project-card observe">
     <div class="card-image">
       <a href="equalizer-3.html" class="card-page-link"></a>
       <img src="assets/the-equalizer-3.jpg" alt="The Equalizer 3" loading="lazy">
     </div>
     <div class="project-overlay">
-      <div class="project-type">Film · Sony</div>
-      <div class="project-name">THE EQUALIZER 3</div>
-      <div class="project-desc">Robert McCall finds refuge in Southern Italy — until local crime bosses threaten everything he loves.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt17024450/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=19ikl8vy4zs" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-title-row">
+    <div class="project-name">THE EQUALIZER 3</div>
+    <div class="shot-num">150+</div>
   </div>
-
-  <!-- 5 -->
+  <div class="project-meta"><span class="project-type">Film · Sony</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">CG digital doubles, animation, FX blood, compositing</div>
+  <div class="project-links">
+    <a href="equalizer-3.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
+  </div><!-- 5 -->
   <div class="project-card observe">
     <div class="card-image">
       <a href="nautilus.html" class="card-page-link"></a>
       <img src="assets/nautilus.jpg" alt="Nautilus" loading="lazy">
     </div>
     <div class="project-overlay">
-      <div class="project-type">Series · Disney+</div>
-      <div class="project-name">NAUTILUS</div>
-      <div class="project-desc">The origin story of Captain Nemo, based on Jules Verne's 20,000 Leagues Under The Sea.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt15286302/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=2HxWthmp9HU" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-title-row">
+    <div class="project-name">NAUTILUS</div>
+    <div class="shot-num">200+</div>
   </div>
-
-  <!-- 6 -->
+  <div class="project-meta"><span class="project-type">Series · Disney+</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">CG environments, FX, compositing</div>
+  <div class="project-links">
+    <a href="nautilus.html" class="project-link project-link--breakdown">VFX Breakdown</a>
+  </div>
+</div>
+  </div><!-- 6 -->
   <div class="project-card observe">
     <div class="card-image">
       <a href="bsu.html" class="card-page-link"></a>
       <img src="assets/boy-swallows-universe.jpg" alt="Boy Swallows Universe" loading="lazy">
     </div>
     <div class="project-overlay">
-      <div class="project-type">Series · Netflix</div>
-      <div class="project-name">BOY SWALLOWS UNIVERSE</div>
-      <div class="project-desc">1980s Brisbane. A precocious boy and his mute brother embark on an odyssey of love and retribution.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt10399902/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=Ii1UQ-D4dvw" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-title-row">
+    <div class="project-name">BOY SWALLOWS UNIVERSE</div>
+    <div class="shot-num">300+</div>
   </div>
-
-  <!-- 7 -->
+  <div class="project-meta"><span class="project-type">Series · Netflix</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">CG creatures, FX simulation, compositing</div>
+  <div class="project-links">
+    <a href="bsu.html" class="project-link project-link--breakdown">VFX Breakdown</a>
+  </div>
+</div>
+  </div><!-- 7 -->
   <div class="project-card observe">
     <div class="card-image">
       <a href="ncis-sydney.html" class="card-page-link"></a>
       <img src="assets/ncis-sydney.jpg" alt="NCIS Sydney" loading="lazy">
     </div>
     <div class="project-overlay">
-      <div class="project-type">Series · CBS</div>
-      <div class="project-name">NCIS: SYDNEY S2 &amp; S3</div>
-      <div class="project-desc">American NCIS agents and Australian officers investigating crimes together.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt18258908/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=yXKhSEHzBso" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-title-row">
+    <div class="project-name">NCIS: SYDNEY S3</div>
+    <div class="shot-num">500+</div>
   </div>
-
-  <!-- 8 -->
+  <div class="project-meta"><span class="project-type">Series · CBS</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">CG environments, CG aircraft, animation, FX, compositing</div>
+  <div class="project-links">
+    <a href="ncis-sydney.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
+  </div><!-- 8 -->
   <div class="project-card observe">
     <div class="card-image">
       <a href="apple-cider-vinegar.html" class="card-page-link"></a>
       <img src="assets/apple-cider-vinegar.jpg" alt="Apple Cider Vinegar" loading="lazy">
     </div>
     <div class="project-overlay">
-      <div class="project-type">Series · Netflix</div>
-      <div class="project-name">APPLE CIDER VINEGAR</div>
-      <div class="project-desc">The life of wellness guru Belle Gibson, who faked cancer while building a self-care empire.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt30428143/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=u2Yj_rmCzhE" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-title-row">
+    <div class="project-name">APPLE CIDER VINEGAR</div>
+    <div class="shot-num">20+</div>
   </div>
-
-  <!-- 9 -->
-  <div class="project-card observe">
-    <div class="card-image">
-      <a href="nope.html" class="card-page-link"></a>
-      <img src="assets/nope.jpg" alt="Nope" loading="lazy">
-    </div>
-    <div class="project-overlay">
-      <div class="project-type">Film · Universal</div>
-      <div class="project-name">NOPE</div>
-      <div class="project-desc">Residents of an inland California gulch witness an uncanny and terrifying discovery. Dir. Jordan Peele.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt10954984/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=In8fuzj3gck" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-meta"><span class="project-type">Series · Netflix</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">CG creature, environment, organic FX</div>
+  <div class="project-links">
+    <a href="apple-cider-vinegar.html" class="project-link project-link--breakdown">About the Project</a>
   </div>
-
-  <!-- 10 -->
-  <div class="project-card observe">
-    <div class="card-image">
-      <a href="la-brea.html" class="card-page-link"></a>
-      <img src="assets/la-brea-s3.jpg" alt="La Brea S3" loading="lazy">
-    </div>
-    <div class="project-overlay">
-      <div class="project-type">Series · NBC</div>
-      <div class="project-name">LA BREA: S2 &amp; S3</div>
-      <div class="project-desc">A massive sinkhole swallows part of Los Angeles, separating a family into an unexplained primeval world.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt11640018/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=wLKL4I8b2t4" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 11 -->
-  <div class="project-card observe">
-    <div class="card-image">
-      <a href="monkey-man.html" class="card-page-link"></a>
-      <img src="assets/monkey-man.jpg" alt="Monkey Man" loading="lazy">
-    </div>
-    <div class="project-overlay">
-      <div class="project-type">Film · Universal</div>
-      <div class="project-name">MONKEY MAN</div>
-      <div class="project-desc">A young man launches a campaign of vengeance against the corrupt leaders who murdered his mother.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt9214772/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=g8zxiB5Qhsc" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 12 -->
-  <div class="project-card observe">
-    <div class="card-image">
-      <a href="watchmen.html" class="card-page-link"></a>
-      <img src="assets/watchmen.jpg" alt="Watchmen" loading="lazy">
-    </div>
-    <div class="project-overlay">
-      <div class="project-type">Series · HBO</div>
-      <div class="project-name">WATCHMEN</div>
-      <div class="project-desc">Set in an alternate history where masked vigilantes are outlaws. Based on the groundbreaking graphic novel.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt7049682/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=luvIreUzyXI" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 13 -->
-  <div class="project-card observe">
-    <div class="card-image">
-      <a href="three-thousand-years-of-longing.html" class="card-page-link"></a>
-      <img src="assets/three-thousand-years-of-longing.jpg" alt="Three Thousand Years of Longing" loading="lazy">
-    </div>
-    <div class="project-overlay">
-      <div class="project-type">Film · MGM</div>
-      <div class="project-name">THREE THOUSAND YEARS OF LONGING</div>
-      <div class="project-desc">A lonely scholar discovers a Djinn who offers her three wishes in exchange for his freedom. Dir. George Miller.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt9198364/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=TWGvntl9itE" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 14 -->
-  <div class="project-card observe">
-    <div class="card-image">
-      <a href="heartbreak-high.html" class="card-page-link"></a>
-      <img src="assets/heartbreak-high-s2.jpg" alt="Heartbreak High S2" loading="lazy">
-    </div>
-    <div class="project-overlay">
-      <div class="project-type">Series · Netflix</div>
-      <div class="project-name">HEARTBREAK HIGH: S2</div>
-      <div class="project-desc">Hartley High, 20 years on. Amerie navigates reputation, love, sex, and heartbreak.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt15054962/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=Zj5-uPt8718" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 15 -->
-  <div class="project-card observe">
-    <div class="card-image">
-      <a href="the-portable-door.html" class="card-page-link"></a>
-      <img src="assets/the-portable-door.jpg" alt="The Portable Door" loading="lazy">
-    </div>
-    <div class="project-overlay">
-      <div class="project-type">Film · MGM+</div>
-      <div class="project-name">THE PORTABLE DOOR</div>
-      <div class="project-desc">Two interns at a mysterious London firm uncover a plot by their CEO to disrupt the ancient magical world. Starring Christoph Waltz &amp; Sam Neill.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt11820950/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=Rl7LPvFdrX8" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- 16 -->
+</div>
+  </div><!-- 9 -->
   <div class="project-card observe">
     <div class="card-image">
       <a href="dangerous-animals.html" class="card-page-link"></a>
       <img src="assets/dangerous-animals.jpg" alt="Dangerous Animals" loading="lazy">
     </div>
     <div class="project-overlay">
-      <div class="project-type">Film · Amazon</div>
-      <div class="project-name">DANGEROUS ANIMALS</div>
-      <div class="project-desc">A free-spirited surfer abducted must escape before a ritualistic feeding to the sharks below.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt32299316/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=WR2btzjmmuc" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-title-row">
+    <div class="project-name">DANGEROUS ANIMALS</div>
+    <div class="shot-num">80+</div>
   </div>
-
-  <!-- 17 -->
+  <div class="project-meta"><span class="project-type">Film · Amazon</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">CG creatures, FX water, FX blood, digital doubles, face replacements</div>
+  <div class="project-links">
+    <a href="dangerous-animals.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
+  </div><!-- 10 -->
+  <div class="project-card observe">
+    <div class="card-image">
+      <a href="la-brea.html" class="card-page-link"></a>
+      <img src="assets/la-brea-s3.jpg" alt="La Brea S3" loading="lazy">
+    </div>
+    <div class="project-overlay">
+  <div class="project-title-row">
+    <div class="project-name">LA BREA: S3</div>
+    <div class="shot-num">100+</div>
+  </div>
+  <div class="project-meta"><span class="project-type">Series · NBC</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">FX fire, FX smoke, compositing</div>
+  <div class="project-links">
+    <a href="la-brea.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
+  </div><!-- 11 -->
+  <div class="project-card observe">
+    <div class="card-image">
+      <a href="monkey-man.html" class="card-page-link"></a>
+      <img src="assets/monkey-man.jpg" alt="Monkey Man" loading="lazy">
+    </div>
+    <div class="project-overlay">
+  <div class="project-title-row">
+    <div class="project-name">MONKEY MAN</div>
+    <div class="shot-num">30+</div>
+  </div>
+  <div class="project-meta"><span class="project-type">Film · Universal</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">compositing, FX damage</div>
+  <div class="project-links">
+    <a href="monkey-man.html" class="project-link project-link--breakdown">VFX Breakdown</a>
+  </div>
+</div>
+  </div><!-- 12 -->
+  <div class="project-card observe">
+    <div class="card-image">
+      <a href="watchmen.html" class="card-page-link"></a>
+      <img src="assets/watchmen.jpg" alt="Watchmen" loading="lazy">
+    </div>
+    <div class="project-overlay">
+  <div class="project-title-row">
+    <div class="project-name">WATCHMEN</div>
+    <div class="shot-num">50+</div>
+  </div>
+  <div class="project-meta"><span class="project-type">Series · HBO</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">CG environments, compositing</div>
+  <div class="project-links">
+    <a href="watchmen.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
+  </div><!-- 13 -->
+  <div class="project-card observe">
+    <div class="card-image">
+      <a href="three-thousand-years-of-longing.html" class="card-page-link"></a>
+      <img src="assets/three-thousand-years-of-longing.jpg" alt="Three Thousand Years of Longing" loading="lazy">
+    </div>
+    <div class="project-overlay">
+  <div class="project-title-row">
+    <div class="project-name">THREE THOUSAND YEARS OF LONGING</div>
+    <div class="shot-num">30+</div>
+  </div>
+  <div class="project-meta"><span class="project-type">Film · MGM</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">CG environments, FX, compositing</div>
+  <div class="project-links">
+    <a href="three-thousand-years-of-longing.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
+  </div><!-- 14 -->
+  <div class="project-card observe">
+    <div class="card-image">
+      <a href="heartbreak-high.html" class="card-page-link"></a>
+      <img src="assets/heartbreak-high-s2.jpg" alt="Heartbreak High S2" loading="lazy">
+    </div>
+    <div class="project-overlay">
+  <div class="project-title-row">
+    <div class="project-name">HEARTBREAK HIGH: S2</div>
+    <div class="shot-num">100+</div>
+  </div>
+  <div class="project-meta"><span class="project-type">Series · Netflix</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">FX simulation, pyrotechnics, compositing</div>
+  <div class="project-links">
+    <a href="heartbreak-high.html" class="project-link project-link--breakdown">VFX Breakdown</a>
+  </div>
+</div>
+  </div><!-- 15 -->
+  <div class="project-card observe">
+    <div class="card-image">
+      <a href="the-portable-door.html" class="card-page-link"></a>
+      <img src="assets/the-portable-door.jpg" alt="The Portable Door" loading="lazy">
+    </div>
+    <div class="project-overlay">
+  <div class="project-title-row">
+    <div class="project-name">THE PORTABLE DOOR</div>
+    <div class="shot-num">140+</div>
+  </div>
+  <div class="project-meta"><span class="project-type">Film · MGM+</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">FX simulation, creature work, compositing</div>
+  <div class="project-links">
+    <a href="the-portable-door.html" class="project-link project-link--breakdown">VFX Breakdown</a>
+  </div>
+</div>
+  </div><!-- 16 -->
+  <div class="project-card observe">
+    <div class="card-image">
+      <a href="la-brea-s2.html" class="card-page-link"></a>
+      <img src="assets/la-brea-s2.jpg" alt="La Brea S2" loading="lazy">
+    </div>
+    <div class="project-overlay">
+  <div class="project-title-row">
+    <div class="project-name">LA BREA: S2</div>
+    <div class="shot-num">50+</div>
+  </div>
+  <div class="project-meta"><span class="project-type">Series · NBC</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">FX snow, set extensions, compositing</div>
+  <div class="project-links">
+    <a href="la-brea-s2.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
+  </div><!-- 17 -->
   <div class="project-card observe">
     <div class="card-image">
       <a href="dark-harvest.html" class="card-page-link"></a>
       <img src="assets/dark-harvest.jpg" alt="Dark Harvest" loading="lazy">
     </div>
     <div class="project-overlay">
-      <div class="project-type">Film · MGM</div>
-      <div class="project-name">DARK HARVEST</div>
-      <div class="project-desc">In a small Midwestern town, a deadly annual ritual unfolds when a mythical nightmare returns.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt9204328/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=Pge4NmBzdkE" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-title-row">
+    <div class="project-name">DARK HARVEST</div>
+    <div class="shot-num">200+</div>
   </div>
-
-  <!-- 18 -->
+  <div class="project-meta"><span class="project-type">Film · MGM</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">creature FX, set extensions, FX blood, compositing</div>
+  <div class="project-links">
+    <a href="dark-harvest.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
+  </div><!-- 18 -->
   <div class="project-card observe">
     <div class="card-image">
       <a href="the-king.html" class="card-page-link"></a>
       <img src="assets/the-king.jpg" alt="The King" loading="lazy">
     </div>
     <div class="project-overlay">
-      <div class="project-type">Film · Netflix</div>
-      <div class="project-name">THE KING</div>
-      <div class="project-desc">A wayward prince ascends the English throne and must navigate palace intrigue and war against France. Dir. David Michôd.</div>
-      <div class="project-links">
-        <a href="https://www.imdb.com/title/tt7984766/" class="project-link" target="_blank">IMDB</a>
-        <a href="https://www.youtube.com/watch?v=MlBtREFyxEE" class="project-link" target="_blank">Trailer</a>
-      </div>
-    </div>
+  <div class="project-title-row">
+    <div class="project-name">THE KING</div>
+    <div class="shot-num">200+</div>
+  </div>
+  <div class="project-meta"><span class="project-type">Film · Netflix</span><span class="shot-label">SHOTS</span></div>
+  <div class="project-desc">set extensions, crowd duplication, FX blood &amp; gore, compositing</div>
+  <div class="project-links">
+    <a href="the-king.html" class="project-link project-link--breakdown">About the Project</a>
+  </div>
+</div>
   </div>
 
 </div>
 
 <div class="archive-wrap">
-  <a href="archive.html" class="archive-cta">All Projects →</a>
+  <a href="all-projects.html" class="archive-cta">All Projects →</a>
 </div>
 
 <div class="divider"></div>
@@ -1011,7 +431,7 @@
       <div class="cred-body">
         Australia's <strong>30% PDV Offset</strong> combined with the <strong>NSW Government's 10% rebate</strong> means productions using Future Associate's VFX services qualify for up to 40 cents back on every dollar spent.
       </div>
-      <img src="assets/Ausfilm_logo.svg.png" alt="Ausfilm" style="height:auto; width:165px; display:block; flex-shrink:0; filter: brightness(0) invert(1);">
+      <img src="assets/Ausfilm_logo.svg.png" alt="Ausfilm" style="height:auto; width:165px; display:block; flex-shrink:0; filter: brightness(0) invert(1); opacity: 0.8;">
     </div>
     <div class="cred-link"><a href="http://www.ausfilm.com.au/incentives/post-digital-and-visual-effects-production-pdv-offset/" target="_blank">Learn more at Ausfilm</a>.</div>
   </div>
@@ -1037,7 +457,7 @@
     <div class="cred-icon">Independent</div>
     <div class="cred-title">By Choice</div>
     <div class="cred-body">
-      Built to make great VFX. Nothing else.<br><br><a href="contact.html">Get in touch — we'll answer.</a>
+      Built to make great VFX. Nothing else.<br><br><a href="contact.html">Discuss your project — we'll answer.</a>
     </div>
   </div>
 </div>
@@ -1079,17 +499,57 @@
     overlay.addEventListener('mouseenter', activate);
   });
 
-  // Nav background on scroll
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      nav.style.background = 'rgba(8,8,8,0.97)';
-    } else {
-      nav.style.background = '';
-    }
-  });
+
+</script>
+
+<script>
+  // Vimeo reel scrubber + fullscreen
+  (function() {
+    var vimeoScript = document.createElement('script');
+    vimeoScript.src = 'https://player.vimeo.com/api/player.js';
+    vimeoScript.onload = function() {
+      var iframe  = document.getElementById('reel-iframe');
+      var fill    = document.getElementById('reel-fill');
+      var track   = document.getElementById('reel-track');
+      var fsBtn   = document.getElementById('reel-fullscreen');
+      var player  = new Vimeo.Player(iframe);
+      var duration = 0;
+
+      player.getDuration().then(function(d) { duration = d; });
+
+      player.on('timeupdate', function(data) {
+        fill.style.width = (data.percent * 100) + '%';
+      });
+
+      track.addEventListener('click', function(e) {
+        if (!duration) return;
+        var rect = track.getBoundingClientRect();
+        var pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        player.setCurrentTime(pct * duration);
+      });
+
+      var container = iframe.parentElement;
+
+      var iconExpand   = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6V1H6M10 1H15V6M15 10V15H10M6 15H1V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      var iconCompress = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1V6H1M15 6H10V1M10 15V10H15M1 10H6V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+      fsBtn.addEventListener('click', function() {
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        } else {
+          container.requestFullscreen();
+        }
+      });
+
+      document.addEventListener('fullscreenchange', function() {
+        fsBtn.innerHTML = document.fullscreenElement ? iconCompress : iconExpand;
+      });
+    };
+    document.head.appendChild(vimeoScript);
+  })();
 </script>
 </div>
+<script src="nav.js"></script>
 <script src="transitions.js"></script>
 </body>
 </html>
