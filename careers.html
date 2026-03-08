@@ -37,15 +37,25 @@
 <div class="roles-section">
   <div class="roles-label">Open Positions</div>
   <div class="roles-grid">
-    <div class="role-card">
-      <div class="role-type">Sydney</div>
+    <div class="role-card" data-role="Junior Compositor">
+      <div class="role-type">Sydney — On site</div>
       <div class="role-title">Junior Compositor</div>
       <div class="role-desc">Fresh graduate or junior talent with roto, cleanup and keying on your reel. You're hungry to learn, comfortable in a small team, and ready to be pushed.</div>
     </div>
-    <div class="role-card">
-      <div class="role-type">Sydney</div>
+    <div class="role-card" data-role="Compositor">
+      <div class="role-type">Sydney — On site</div>
       <div class="role-title">Compositor</div>
       <div class="role-desc">3+ years in live action film or TV. You drive shots to completion, take supervision well, and thrive in a studio that holds the work to a high standard.</div>
+    </div>
+    <div class="role-card" data-role="Unreal Software Engineer">
+      <div class="role-type">Sydney — On site</div>
+      <div class="role-title">Unreal Software Engineer</div>
+      <div class="role-desc">Real-time engineering role on a game project. You're strong in C++ and Unreal Engine 5, comfortable with Blueprint, and can own systems end to end. Experience in games or real-time VFX pipelines preferred.</div>
+    </div>
+    <div class="role-card" data-role="3D Generalist">
+      <div class="role-type">Sydney — On site</div>
+      <div class="role-title">3D Generalist</div>
+      <div class="role-desc">Maya, Houdini, Redshift across film and TV production. You cover the pipeline — modelling, FX, lighting, rendering. Comfortable working to brief and to deadline on live action projects.</div>
     </div>
   </div>
 </div>
@@ -58,7 +68,7 @@
 </div>
 
 <!-- APPLICATION FORM -->
-<div class="form-section">
+<div class="form-section" id="apply-section">
 
   <div class="form-info">
     <div class="form-info-label">Apply</div>
@@ -79,6 +89,7 @@
           <option>Compositor</option>
           <option>Junior Compositor</option>
           <option>Matte Painter</option>
+          <option>Unreal Software Engineer</option>
           <option>3D Generalist</option>
           <option>FX</option>
           <option>Animator</option>
@@ -142,6 +153,17 @@
   <div class="footer-location">Sydney, NSW &nbsp;·&nbsp; Australia</div>
   <div class="footer-copy">© Future Associate Pty Ltd · All Rights Reserved</div>
 </footer>
+
+<script>
+  document.querySelectorAll('.role-card[data-role]').forEach(card => {
+    card.addEventListener('click', () => {
+      const role = card.dataset.role;
+      const select = document.getElementById('position');
+      select.value = role;
+      document.getElementById('apply-section').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
 
 <script>
   // ← Paste your deployed Apps Script URL here after setup

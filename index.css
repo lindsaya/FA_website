@@ -636,3 +636,7 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+@media (max-width: 768px) {
+  .all-projects-link { display: none !important; }
+}

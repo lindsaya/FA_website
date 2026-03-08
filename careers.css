@@ -85,20 +85,25 @@
 
   .roles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 0;
   }
 
   .role-card {
     padding: 3rem;
     border: 1px solid var(--grey);
-    border-collapse: collapse;
+    cursor: pointer;
     transition: border-color 0.2s, background 0.2s;
   }
 
   .role-card:hover {
     border-color: var(--pink);
     background: rgba(236,0,141,0.03);
+  }
+
+  .role-card:hover .role-title::after {
+    content: ' →';
+    color: var(--pink);
   }
 
   .role-title {
