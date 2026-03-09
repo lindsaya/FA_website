@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elvis — Future Associate</title>
+
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="mobile.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #000000;
+    --white: #f0ede8;
+    --pink: #ec008d;
+    --grey: #2a2a2a;
+    --mid: #888;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Libre Baskerville', Georgia, serif;
+    --font-mono: 'Courier Prime', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 1.5rem 3rem;
+    background: rgba(0,0,0,0.97);
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    top: 6px;
+  }
+
+  .nav-logo img {
+    height: 62px;
+    width: auto;
+    display: block;
+    mix-blend-mode: screen;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    position: relative;
+    top: 8px;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--pink); }
+
+  /* HERO — POSTER FULL BLEED */
+  .project-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .project-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: saturate(0.7) brightness(0.6);
+  }
+
+  .project-hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.15) 100%);
+  }
+
+  .project-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 3rem 5rem;
+    width: 100%;
+  }
+
+  .project-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    margin-bottom: 3rem;
+    transition: color 0.2s;
+  }
+
+  .project-back:hover { color: var(--pink); }
+  .project-back::before { content: '←'; color: var(--pink); }
+
+  .project-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 1rem;
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 12vw, 12rem);
+    line-height: 0.88;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .project-meta-row {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .project-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .meta-value {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  /* VIDEO */
+  .video-section {
+    padding: 0 3rem;
+    background: var(--black);
+  }
+
+  .video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-embed iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--grey), transparent);
+    margin: 0 3rem;
+  }
+
+  /* BODY CONTENT */
+  .project-body {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 0;
+    min-height: 50vh;
+    border-bottom: 1px solid var(--grey);
+  }
+
+  /* LEFT — DETAILS */
+  .project-details {
+    padding: 6rem 4rem 6rem 3rem;
+    border-right: 1px solid var(--grey);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .detail-block {}
+
+  .detail-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 0.6rem;
+  }
+
+  .detail-value {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(240,237,232,0.8);
+  }
+
+  .detail-value strong {
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .role-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .role-tag {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    border: 1px solid var(--grey);
+    padding: 0.35rem 0.8rem;
+  }
+
+  /* RIGHT — EDITORIAL */
+  .project-editorial {
+    padding: 6rem 5rem;
+  }
+
+  .editorial-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: 0.03em;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 2.5rem;
+  }
+
+  .editorial-body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 2;
+    color: rgba(240,237,232,0.75);
+    max-width: 620px;
+  }
+
+  .editorial-body p + p {
+    margin-top: 1.5rem;
+  }
+
+  .editorial-body strong {
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 6rem 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+  }
+
+  .footer-location {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    .project-body { grid-template-columns: 1fr; }
+    .project-details { border-right: none; border-bottom: 1px solid var(--grey); padding: 3rem 2rem; }
+    .project-editorial { padding: 3rem 2rem; }
+    .project-hero-content { padding: 0 2rem 4rem; }
+    .video-section { padding: 0 1.5rem; }
+    .divider { margin: 0 1.5rem; }
+    nav { padding: 1.5rem 2rem; }
+    .nav-links { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul class="nav-links">
+    <li><a href="index.html#reel">Reel</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="about.html">Leadership</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <a href="index.html" class="nav-logo"><img src="assets/fa_on_black_crop.jpg" alt="Future Associate"></a>
+</nav>
+
+<div id="page-content">
+
+<!-- HERO -->
+<div class="project-hero">
+  <img class="project-hero-img" src="assets/elvis.jpg" alt="Elvis">
+  <div class="project-hero-gradient"></div>
+  <div class="project-hero-content">
+    <a href="index.html#projects" class="project-back">All Projects</a>
+    <div class="project-eyebrow">Film · Warner Bros. · 2022</div>
+    <h1 class="project-title">Elvis</h1>
+    <div class="project-meta-row">
+      <div class="project-meta-item">
+        <span class="meta-label">Director</span>
+        <span class="meta-value">Baz Luhrmann</span>
+      </div>
+      <div class="project-meta-item">
+        <span class="meta-label">VFX Supervisor</span>
+        <span class="meta-value">Lindsay Adams</span>
+      </div>
+      <div class="project-meta-item">
+        <span class="meta-label">Studio</span>
+        <span class="meta-value">Warner Bros.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div class="video-section">
+  <div class="video-embed">
+    <iframe
+      src="https://player.vimeo.com/video/1169769347?autoplay=0&muted=1&loop=0"
+      title="Elvis — Future Associate VFX"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<div class="divider" style="margin-top: 4rem;"></div>
+
+<!-- BODY -->
+<div class="project-body">
+
+  <!-- LEFT: DETAILS -->
+  <div class="project-details">
+
+    <div class="detail-block">
+      <div class="detail-label">Production</div>
+      <div class="detail-value">
+        <strong>Elvis</strong><br>
+        Warner Bros. Pictures · 2022<br>
+        Directed by Baz Luhrmann
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <div class="detail-label">FA Role</div>
+      <div class="role-tags">
+        <span class="role-tag">VFX Production</span>
+        <span class="role-tag">Environment Extension</span>
+        <span class="role-tag">Crowd Simulation</span>
+        <span class="role-tag">Period Restoration</span>
+      </div>
+    </div>
+
+    <div class="detail-block">
+      <div class="detail-label">Links</div>
+      <div class="detail-value">
+        <a href="https://www.imdb.com/title/tt3704428/" target="_blank" style="color:var(--white); text-decoration:underline; text-decoration-color:var(--pink); text-underline-offset:3px;">IMDB →</a><br>
+        <a href="https://www.youtube.com/watch?v=wBDLRvjHVOY" target="_blank" style="color:var(--white); text-decoration:underline; text-decoration-color:var(--pink); text-underline-offset:3px; margin-top:0.5rem; display:inline-block;">Official Trailer →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: EDITORIAL -->
+  <div class="project-editorial">
+    <div class="editorial-heading">The Work.</div>
+    <div class="editorial-body">
+      <p>Baz Luhrmann's <strong>Elvis</strong> demanded a level of visual ambition that matched the man himself. Future Associate was engaged to deliver a suite of VFX sequences spanning the full arc of Elvis Presley's career — from the raw energy of early Tupelo performances through to the spectacular excess of his Las Vegas residency.</p>
+
+      <p>Our work centred on <strong>large-scale environment extensions and period-accurate crowd simulation</strong>, transforming Queensland locations into 1950s American South backdrops and filling the International Hotel with thousands of digital extras. Every frame required forensic attention to period detail — architecture, signage, costume, lighting — to hold up against Luhrmann's hyperkinetic visual style.</p>
+
+      <p>Working alongside Production VFX Supervisor <strong>Lindsay Adams</strong>, the Future Associate team embedded directly with the production pipeline, turning around complex shots under the compressed schedules that blockbuster post demands. The result: seamless work that holds up in one of the most visually scrutinised films of 2022.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-location">Sydney, NSW &nbsp;·&nbsp; Australia</div>
+  <div class="footer-copy">© Future Associate Pty Ltd · All Rights Reserved</div>
+</footer>
+
+</div>
+<script src="transitions.js"></script>
+</body>
+</html>
