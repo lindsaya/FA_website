@@ -121,6 +121,29 @@
   .info-link { font-family: 'Barlow', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
   .info-link:hover { color: var(--pink); border-color: var(--pink); }
 
+  .breakdown-body { padding: 5rem clamp(3rem, 14vw, 22rem); display: flex; flex-direction: column; gap: 0; }
+
+  .breakdown-chapter { display: flex; flex-direction: column; gap: 2rem; padding: 4rem 0; border-top: 1px solid var(--grey); }
+  .breakdown-chapter:first-child { border-top: none; padding-top: 0; }
+  .breakdown-chapter-label { font-family: 'Barlow', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--pink); margin: 0; }
+  .breakdown-chapter-content { display: flex; flex-direction: column; gap: 1.5rem; }
+  .breakdown-chapter-content p { font-size: 1rem; line-height: 1.8; color: rgba(240,237,232,0.8); }
+
+  .breakdown-video { width: 100%; display: block; border-radius: 2px; }
+
+  .breakdown-highlights { display: flex; flex-direction: column; gap: 0.75rem; padding-top: 3rem; border-top: 1px solid var(--grey); margin-top: 1rem; }
+
+  .breakdown-section { padding: 5rem clamp(3rem, 14vw, 22rem); border-top: 1px solid var(--grey); }
+  .breakdown-label { font-family: 'Barlow', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--pink); margin-bottom: 2rem; }
+  .video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #111; overflow: hidden; }
+  .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+  .vfx-highlight { font-family: 'Barlow', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); padding-left: 1.2rem; position: relative; }
+  .vfx-highlight::before { content: '—'; position: absolute; left: 0; color: var(--pink); }
+
+  .vfx-quote { margin-top: 2rem; border-left: 2px solid var(--pink); padding-left: 1.5rem; }
+  .vfx-quote-text { font-family: var(--font-body); font-size: 0.95rem; line-height: 1.8; color: rgba(240,237,232,0.75); font-style: italic; }
+  .vfx-quote-attr { font-family: 'Barlow', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); margin-top: 0.75rem; }
+
   footer { padding: 6rem 3rem 5rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.2rem; }
   .footer-location { font-family: 'Barlow', sans-serif; font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--mid); }
   .footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; color: #555; margin-top: 0.5rem; }
@@ -131,4 +154,7 @@
     .project-header { min-height: 90vw; padding: 0 1.5rem 3rem; }
     .poster-stat { bottom: 3rem; right: 1.5rem; }
     .project-info { grid-template-columns: 1fr; gap: 2.5rem; }
+    .breakdown-body { padding: 3rem 1.5rem; }
+    .breakdown-chapter { padding: 2.5rem 0; gap: 1.5rem; }
+    .breakdown-section { padding: 3rem 1.5rem; }
   }
