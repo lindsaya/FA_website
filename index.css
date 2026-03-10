@@ -81,6 +81,17 @@
     color: var(--pink);
   }
 
+  .hero-title-location {
+    display: block;
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(0.75rem, 1.2vw, 1rem);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: 1.2rem;
+  }
+
   .hero-sub {
     margin-top: 7rem;
     display: flex;
