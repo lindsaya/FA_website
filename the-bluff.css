@@ -205,6 +205,35 @@
     border: none;
   }
 
+  /* CHAPTER VIDEO */
+  .chapter-video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #111;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+  }
+
+  .chapter-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .chapter-video::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 46px;
+    background: #000;
+    z-index: 2;
+  }
+
   /* BREAKDOWN BODY */
   .breakdown-body {
     padding: 0 clamp(3rem, 6vw, 8rem) 5rem;

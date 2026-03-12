@@ -151,6 +151,13 @@
   .footer-location { font-family: 'Barlow', sans-serif; font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--mid); }
   .footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; color: #555; margin-top: 0.5rem; }
 
+  /* BREAKDOWN BODY */
+  .breakdown-body { padding: 0 clamp(3rem, 6vw, 8rem) 5rem; }
+  .breakdown-chapter { border-top: 1px solid var(--grey); padding: 4rem 0; }
+  .breakdown-chapter-label { font-family: 'Barlow', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--pink); margin-bottom: 2rem; }
+  .breakdown-chapter-content { display: flex; flex-direction: column; gap: 1.4rem; max-width: 780px; }
+  .breakdown-chapter-content p { font-size: 1rem; line-height: 1.8; color: rgba(240,237,232,0.8); }
+
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
   @media (max-width: 768px) {
