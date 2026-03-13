@@ -236,13 +236,21 @@
 
   /* BREAKDOWN BODY */
   .breakdown-body {
-    padding: 0 clamp(3rem, 6vw, 8rem) 5rem;
+    padding: 5rem clamp(3rem, 14vw, 22rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
   .breakdown-chapter {
-    border-top: 1px solid var(--grey);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     padding: 4rem 0;
+    border-top: 1px solid var(--grey);
   }
+
+  .breakdown-chapter:first-child { border-top: none; padding-top: 0; }
 
   .breakdown-chapter-label {
     font-family: 'Barlow', sans-serif;
@@ -251,14 +259,13 @@
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--pink);
-    margin-bottom: 2rem;
+    margin: 0;
   }
 
   .breakdown-chapter-content {
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
-    max-width: 780px;
+    gap: 1.5rem;
   }
 
   .breakdown-chapter-content p {
@@ -266,6 +273,12 @@
     line-height: 1.8;
     color: rgba(240,237,232,0.8);
   }
+
+  .breakdown-video { width: 100%; display: block; border-radius: 2px; }
+
+  .breakdown-highlights { display: flex; flex-direction: column; gap: 0.75rem; padding-top: 3rem; border-top: 1px solid var(--grey); margin-top: 1rem; }
+  .vfx-highlight { font-family: 'Barlow', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); padding-left: 1.2rem; position: relative; }
+  .vfx-highlight::before { content: '—'; position: absolute; left: 0; color: var(--pink); }
 
   /* PROJECT INFO */
   .project-info {
@@ -351,4 +364,7 @@
     .project-header { min-height: 90vw; padding: 0 1.5rem 3rem; }
     .poster-stat { bottom: 3rem; right: 1.5rem; }
     .project-info { grid-template-columns: 1fr; gap: 2.5rem; }
+    .breakdown-body { padding: 3rem 1.5rem; }
+    .breakdown-chapter { padding: 2.5rem 0; gap: 1.5rem; }
+    .breakdown-section { padding: 3rem 1.5rem; }
   }
