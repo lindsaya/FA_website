@@ -520,7 +520,7 @@
     padding: 6rem clamp(3rem, 6vw, 8rem);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 0.5rem;
   }
 
   .cred-block {
