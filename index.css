@@ -518,7 +518,7 @@
   /* CREDENTIALS */
   .credentials {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid var(--grey);
     border-bottom: 1px solid var(--grey);
   }
@@ -732,10 +732,9 @@
 
 @media (max-width: 768px) {
   .also-grid { grid-template-columns: repeat(3, 1fr); }
-  .credentials { grid-template-columns: repeat(2, 1fr); }
-  .cred-block:nth-child(2) { border-right: none; }
-  .cred-block:nth-child(3) { border-top: 1px solid var(--grey); }
-  .cred-block:nth-child(4) { border-top: 1px solid var(--grey); border-right: none; }
+  .credentials { grid-template-columns: 1fr; }
+  .cred-block { border-right: none; border-bottom: 1px solid var(--grey); }
+  .cred-block:last-child { border-bottom: none; }
 }
 
 @media (max-width: 480px) {
