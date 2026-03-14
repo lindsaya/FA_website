@@ -517,20 +517,41 @@
 
   /* CREDENTIALS */
   .credentials {
-    padding: 6rem clamp(3rem, 12vw, 16rem);
+    padding: 6rem clamp(3rem, 6vw, 8rem);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--grey);
-    border-top: 1px solid var(--grey);
-    border-bottom: 1px solid var(--grey);
+    gap: 3rem;
   }
 
   .cred-block {
-    background: var(--black);
-    padding: 4rem 3rem;
+    background: transparent;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 3rem;
+    align-items: start;
+    border-bottom: 1px solid var(--grey);
+  }
+
+  .cred-block:nth-child(n+3) {
+    grid-column: 2;
+  }
+
+  .cred-left {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cred-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cred-block:last-child {
+    border-bottom: none;
   }
 
   .cred-link {
@@ -551,18 +572,18 @@
 
   .cred-icon {
     font-family: var(--font-display);
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     color: var(--pink);
     line-height: 1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
   }
 
   .cred-title {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 1.3rem;
     letter-spacing: 0.05em;
     color: var(--white);
-    margin-bottom: 1rem;
+    margin-bottom: 0;
   }
 
   .cred-body {
@@ -659,7 +680,7 @@
 
 .also-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.75rem;
   margin-top: 1.5rem;
 }
@@ -699,8 +720,21 @@
   padding-top: 0.6rem;
 }
 
+.also-meta {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink);
+  text-shadow: 0 1px 8px rgba(0,0,0,1);
+  margin-top: 0.4rem;
+}
+
 @media (max-width: 768px) {
   .also-grid { grid-template-columns: repeat(3, 1fr); }
+  .credentials { grid-template-columns: 1fr; }
+  .cred-block:nth-child(n+3) { grid-column: auto; }
 }
 
 @media (max-width: 480px) {

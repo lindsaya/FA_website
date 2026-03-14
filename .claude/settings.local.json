@@ -105,7 +105,18 @@
       "Bash(git add --all -- ':!nul')",
       "Bash(git add -u)",
       "Bash(git add *.html *.xml *.txt assets/*.jpg assets/*.png assets/*.css assets/*.js)",
-      "Bash(git add .claude/settings.local.json all-projects.html assets/ balls-up.html bear-country.html being-the-ricardos.html fires.html glitch-s3.html heat.html prisoner-of-war.html project-page.css reef-break.html robots.txt shayda.html sitemap.xml sonic-the-hedgehog.html states-of-mind.html the-convert.html the-fix.html the-mongoose.html the-thing-about-harry.html the-whistleblower.html true-lies.html under-the-banner-of-heaven.html why-women-kill-s1.html why-women-kill-s2.html download_posters.py)"
+      "Bash(git add .claude/settings.local.json all-projects.html assets/ balls-up.html bear-country.html being-the-ricardos.html fires.html glitch-s3.html heat.html prisoner-of-war.html project-page.css reef-break.html robots.txt shayda.html sitemap.xml sonic-the-hedgehog.html states-of-mind.html the-convert.html the-fix.html the-mongoose.html the-thing-about-harry.html the-whistleblower.html true-lies.html under-the-banner-of-heaven.html why-women-kill-s1.html why-women-kill-s2.html download_posters.py)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Lindsay\\\\FA_website\" -Recurse -Filter \"*reel*.mov\")",
+      "Bash(Select-Object FullName, Name)",
+      "Bash(git -C \"C:\\\\Users\\\\Lindsay\\\\FA_website\" add the-bluff.html the-bluff.css)",
+      "Bash(git -C \"C:\\\\Users\\\\Lindsay\\\\FA_website\" commit -m \"The Bluff: add full VFX breakdown — fire/smoke, environment, Custode, ships\")",
+      "Bash(git -C \"C:\\\\Users\\\\Lindsay\\\\FA_website\" push)",
+      "Bash(git -C \"C:\\\\Users\\\\Lindsay\\\\FA_website\" pull)",
+      "Bash(powershell -Command \":*)",
+      "Bash(git -C \"C:\\\\Users\\\\Lindsay\\\\FA_website\" add index.html the-bluff.html the-bluff.css the-convert.html apple-cider-vinegar.html apple-cider-vinegar.css in-vitro.html monkey-man.html monkey-man.css project-page.css)",
+      "Bash(git -C \"C:\\\\Users\\\\Lindsay\\\\FA_website\" commit -m \"Add VFX breakdown videos and copy — ACV, The Convert, In Vitro, Monkey Man, The Bluff updates\")",
+      "Bash(ls *.css)",
+      "Bash(git add:*)"
     ]
   }
 }
