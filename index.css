@@ -535,10 +535,10 @@
   }
 
   .cred-logo {
-    height: 52px;
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .cred-stat {
