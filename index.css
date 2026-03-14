@@ -536,9 +536,6 @@
   .cred-block:nth-child(1) { grid-column: 1; grid-row: 1; }
   .cred-block:nth-child(2) { grid-column: 1; grid-row: 2; }
   .cred-block:nth-child(3) { grid-column: 2; grid-row: 1; }
-  .cred-block:nth-child(3) .cred-icon {
-    text-transform: lowercase;
-  }
   .cred-block:nth-child(4) { grid-column: 2; grid-row: 2; }
 
   .cred-left {
@@ -580,6 +577,7 @@
     color: var(--pink);
     line-height: 1;
     margin-bottom: 0.8rem;
+    text-transform: lowercase;
   }
 
   .cred-title {
@@ -588,6 +586,7 @@
     letter-spacing: 0.05em;
     color: var(--white);
     margin-bottom: 0;
+    text-transform: lowercase;
   }
 
   .cred-body {
