@@ -116,7 +116,10 @@
       "Bash(git -C \"C:\\\\Users\\\\Lindsay\\\\FA_website\" add index.html the-bluff.html the-bluff.css the-convert.html apple-cider-vinegar.html apple-cider-vinegar.css in-vitro.html monkey-man.html monkey-man.css project-page.css)",
       "Bash(git -C \"C:\\\\Users\\\\Lindsay\\\\FA_website\" commit -m \"Add VFX breakdown videos and copy — ACV, The Convert, In Vitro, Monkey Man, The Bluff updates\")",
       "Bash(ls *.css)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(find /c/Users/Lindsay/FA_website -name *mk* -o -name *mortal*)",
+      "Bash(grep -l \"LocalBusiness\" /c/Users/Lindsay/FA_website/*.html)"
     ]
   }
 }
