@@ -1,10 +1,15 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
   --pink: #ec008d;
-  --grey: #444;
-  --black: #000;
-  --white: #fff;
+  --grey: #2a2a2a;
+  --mid: #888;
+  --black: #000000;
+  --white: #f0ede8;
   --font-display: 'Bebas Neue', sans-serif;
 }
+
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--black);
@@ -18,7 +23,7 @@ body {
 
 /* PAGE HEADER */
 .page-header {
-  padding: 6rem clamp(3rem, 6vw, 8rem);
+  padding: 9rem clamp(3rem, 6vw, 8rem) 6rem;
   border-bottom: 1px solid var(--grey);
 }
 
@@ -51,12 +56,12 @@ body {
   letter-spacing: 0.05em;
   line-height: 1.05;
   margin-bottom: 1rem;
-  color: var(--pink);
+  color: var(--white);
 }
 
 .page-subtitle {
-  font-size: 1rem;
-  color: #999;
+  font-size: 1.2rem;
+  color: var(--white);
   max-width: 800px;
   line-height: 1.6;
 }
@@ -65,15 +70,10 @@ body {
 .faq-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 3rem 4rem;
   padding: 6rem clamp(3rem, 6vw, 8rem);
   max-width: 1400px;
-}
-
-.faq-column {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  align-items: start;
 }
 
 .faq-item {
@@ -103,20 +103,28 @@ body {
 
 /* FOOTER */
 footer {
-  padding: 4rem clamp(3rem, 6vw, 8rem);
-  border-top: 1px solid var(--grey);
+  padding: 6rem 3rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  gap: 1.2rem;
 }
 
 .footer-location {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 0.5rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--mid);
 }
 
 .footer-copy {
-  font-size: 0.85rem;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   color: #555;
+  margin-top: 0.5rem;
 }
 
 /* RESPONSIVE */

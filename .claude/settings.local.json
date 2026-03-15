@@ -125,7 +125,17 @@
       "Bash(do diff:*)",
       "Bash(echo \"$file: IDENTICAL to MK2\")",
       "Bash(echo \"$file: DIFFERENT\")",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/Lindsay/FA_website/**)",
+      "WebFetch(domain:stage23.com.au)",
+      "WebFetch(domain:blackbirdvfx.com)",
+      "WebFetch(domain:slatevfx.com)",
+      "WebFetch(domain:altvfx.com)",
+      "WebFetch(domain:findesign.com.au)",
+      "WebFetch(domain:modelfarm.com)",
+      "WebSearch"
     ]
   }
 }
