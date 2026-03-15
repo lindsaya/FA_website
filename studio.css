@@ -491,9 +491,15 @@
     color: var(--pink);
   }
 
-  .studio-contact-cta {
-    display: inline-block;
+  .closing-ctas {
+    display: flex;
+    gap: 1.5rem;
     margin-top: 3rem;
+    justify-content: flex-end;
+  }
+
+  .studio-cta {
+    display: inline-block;
     font-family: 'Barlow', sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
@@ -505,6 +511,11 @@
     padding: 1rem 2.5rem;
     text-decoration: none;
     transition: background 0.2s;
+  }
+
+  .studio-cta:hover {
+    background: var(--pink);
+    color: var(--black);
   }
 
   .studio-contact-cta:hover { background: var(--pink); }
