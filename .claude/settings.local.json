@@ -119,7 +119,13 @@
       "Bash(git add:*)",
       "Bash(git push:*)",
       "Bash(find /c/Users/Lindsay/FA_website -name *mk* -o -name *mortal*)",
-      "Bash(grep -l \"LocalBusiness\" /c/Users/Lindsay/FA_website/*.html)"
+      "Bash(grep -l \"LocalBusiness\" /c/Users/Lindsay/FA_website/*.html)",
+      "Bash(done)",
+      "Bash(for file:*)",
+      "Bash(do diff:*)",
+      "Bash(echo \"$file: IDENTICAL to MK2\")",
+      "Bash(echo \"$file: DIFFERENT\")",
+      "Bash(git checkout:*)"
     ]
   }
 }
