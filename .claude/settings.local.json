@@ -135,7 +135,11 @@
       "WebFetch(domain:altvfx.com)",
       "WebFetch(domain:findesign.com.au)",
       "WebFetch(domain:modelfarm.com)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:www.screen.nsw.gov.au)",
+      "WebFetch(domain:www.ttpn.org)",
+      "WebFetch(domain:www.screenaustralia.gov.au)",
+      "WebFetch(domain:www.ilm.com)"
     ]
   }
 }

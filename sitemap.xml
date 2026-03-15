@@ -4,285 +4,303 @@
   <!-- Core pages -->
   <url>
     <loc>https://www.future-associate.com/</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/all-projects.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/all-projects</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/about.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/security</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.future-associate.com/incentives</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.future-associate.com/studio</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/studio.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/careers</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/careers.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/contact</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/contact.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/faq</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 
   <!-- Project pages -->
   <url>
-    <loc>https://www.future-associate.com/mortal-kombat-2.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/mortal-kombat-2</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/the-bluff.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/the-bluff</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/elvis.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/elvis</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/nope.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/nope</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/watchmen.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/watchmen</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/bsu.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/bsu</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/ncis-sydney.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/ncis-sydney</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/ncis-sydney-s2.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/ncis-sydney-s2</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/monkey-man.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/monkey-man</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/heartbreak-high.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/heartbreak-high</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/nautilus.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/nautilus</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/prisoner-of-war.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/prisoner-of-war</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/equalizer-3.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/equalizer-3</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/shayda.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/shayda</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/dangerous-animals.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/dangerous-animals</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/the-convert.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/the-convert</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/in-vitro.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/in-vitro</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/states-of-mind.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/states-of-mind</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/la-brea.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/la-brea</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/la-brea-s2.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/la-brea-s2</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/three-thousand-years-of-longing.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/three-thousand-years-of-longing</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/dark-harvest.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/dark-harvest</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/balls-up.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/balls-up</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/bear-country.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/bear-country</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/the-mongoose.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/the-mongoose</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/heat.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/heat</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/true-lies.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/true-lies</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/under-the-banner-of-heaven.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/under-the-banner-of-heaven</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/being-the-ricardos.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/being-the-ricardos</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/fires.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/fires</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/why-women-kill-s2.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/why-women-kill-s2</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/why-women-kill-s1.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/why-women-kill-s1</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/sonic-the-hedgehog.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/sonic-the-hedgehog</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/the-thing-about-harry.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/the-thing-about-harry</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/glitch-s3.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/glitch-s3</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/reef-break.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/reef-break</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/the-fix.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/the-fix</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/the-whistleblower.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/the-whistleblower</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/the-portable-door.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/the-portable-door</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/the-king.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/the-king</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.future-associate.com/apple-cider-vinegar.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://www.future-associate.com/apple-cider-vinegar</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.future-associate.com/mr-irrelevant</loc>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
