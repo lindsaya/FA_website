@@ -495,7 +495,7 @@
     display: flex;
     gap: 1.5rem;
     margin-top: 3rem;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
   .studio-cta {
@@ -517,8 +517,6 @@
     background: var(--pink);
     color: var(--black);
   }
-
-  .studio-contact-cta:hover { background: var(--pink); }
 
   /* FOOTER */
   footer {
